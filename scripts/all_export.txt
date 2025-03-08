@@ -1,0 +1,619 @@
+===== date_table =====
+Date,Year,Mth,Wk#,YrWk,SrtWeek
+"2024-01-01 00:00:00.000",2024,Jan,1,2401,"2024-01-01 00:00:00.000"
+"2024-01-02 00:00:00.000",2024,Jan,1,2401,"2024-01-01 00:00:00.000"
+"2024-01-03 00:00:00.000",2024,Jan,1,2401,"2024-01-01 00:00:00.000"
+"2024-01-04 00:00:00.000",2024,Jan,1,2401,"2024-01-01 00:00:00.000"
+"2024-01-05 00:00:00.000",2024,Jan,1,2401,"2024-01-01 00:00:00.000"
+"2024-01-06 00:00:00.000",2024,Jan,1,2401,"2024-01-01 00:00:00.000"
+"2024-01-07 00:00:00.000",2024,Jan,1,2401,"2024-01-01 00:00:00.000"
+"2024-01-08 00:00:00.000",2024,Jan,2,2402,"2024-01-08 00:00:00.000"
+"2024-01-09 00:00:00.000",2024,Jan,2,2402,"2024-01-08 00:00:00.000"
+"2024-01-10 00:00:00.000",2024,Jan,2,2402,"2024-01-08 00:00:00.000"
+"2024-01-11 00:00:00.000",2024,Jan,2,2402,"2024-01-08 00:00:00.000"
+"2024-01-12 00:00:00.000",2024,Jan,2,2402,"2024-01-08 00:00:00.000"
+"2024-01-13 00:00:00.000",2024,Jan,2,2402,"2024-01-08 00:00:00.000"
+"2024-01-14 00:00:00.000",2024,Jan,2,2402,"2024-01-08 00:00:00.000"
+"2024-01-15 00:00:00.000",2024,Jan,3,2403,"2024-01-15 00:00:00.000"
+"2024-01-16 00:00:00.000",2024,Jan,3,2403,"2024-01-15 00:00:00.000"
+"2024-01-17 00:00:00.000",2024,Jan,3,2403,"2024-01-15 00:00:00.000"
+"2024-01-18 00:00:00.000",2024,Jan,3,2403,"2024-01-15 00:00:00.000"
+"2024-01-19 00:00:00.000",2024,Jan,3,2403,"2024-01-15 00:00:00.000"
+"2024-01-20 00:00:00.000",2024,Jan,3,2403,"2024-01-15 00:00:00.000"
+"2024-01-21 00:00:00.000",2024,Jan,3,2403,"2024-01-15 00:00:00.000"
+"2024-01-22 00:00:00.000",2024,Jan,4,2404,"2024-01-22 00:00:00.000"
+"2024-01-23 00:00:00.000",2024,Jan,4,2404,"2024-01-22 00:00:00.000"
+"2024-01-24 00:00:00.000",2024,Jan,4,2404,"2024-01-22 00:00:00.000"
+"2024-01-25 00:00:00.000",2024,Jan,4,2404,"2024-01-22 00:00:00.000"
+"2024-01-26 00:00:00.000",2024,Jan,4,2404,"2024-01-22 00:00:00.000"
+"2024-01-27 00:00:00.000",2024,Jan,4,2404,"2024-01-22 00:00:00.000"
+"2024-01-28 00:00:00.000",2024,Jan,4,2404,"2024-01-22 00:00:00.000"
+"2024-01-29 00:00:00.000",2024,Jan,5,2405,"2024-01-29 00:00:00.000"
+"2024-01-30 00:00:00.000",2024,Jan,5,2405,"2024-01-29 00:00:00.000"
+"2024-01-31 00:00:00.000",2024,Jan,5,2405,"2024-01-29 00:00:00.000"
+"2024-02-01 00:00:00.000",2024,Feb,5,2405,"2024-01-29 00:00:00.000"
+"2024-02-02 00:00:00.000",2024,Feb,5,2405,"2024-01-29 00:00:00.000"
+"2024-02-03 00:00:00.000",2024,Feb,5,2405,"2024-01-29 00:00:00.000"
+"2024-02-04 00:00:00.000",2024,Feb,5,2405,"2024-01-29 00:00:00.000"
+"2024-02-05 00:00:00.000",2024,Feb,6,2406,"2024-02-05 00:00:00.000"
+"2024-02-06 00:00:00.000",2024,Feb,6,2406,"2024-02-05 00:00:00.000"
+"2024-02-07 00:00:00.000",2024,Feb,6,2406,"2024-02-05 00:00:00.000"
+"2024-02-08 00:00:00.000",2024,Feb,6,2406,"2024-02-05 00:00:00.000"
+"2024-02-09 00:00:00.000",2024,Feb,6,2406,"2024-02-05 00:00:00.000"
+"2024-02-10 00:00:00.000",2024,Feb,6,2406,"2024-02-05 00:00:00.000"
+"2024-02-11 00:00:00.000",2024,Feb,6,2406,"2024-02-05 00:00:00.000"
+"2024-02-12 00:00:00.000",2024,Feb,7,2407,"2024-02-12 00:00:00.000"
+"2024-02-13 00:00:00.000",2024,Feb,7,2407,"2024-02-12 00:00:00.000"
+"2024-02-14 00:00:00.000",2024,Feb,7,2407,"2024-02-12 00:00:00.000"
+"2024-02-15 00:00:00.000",2024,Feb,7,2407,"2024-02-12 00:00:00.000"
+"2024-02-16 00:00:00.000",2024,Feb,7,2407,"2024-02-12 00:00:00.000"
+"2024-02-17 00:00:00.000",2024,Feb,7,2407,"2024-02-12 00:00:00.000"
+"2024-02-18 00:00:00.000",2024,Feb,7,2407,"2024-02-12 00:00:00.000"
+"2024-02-19 00:00:00.000",2024,Feb,8,2408,"2024-02-19 00:00:00.000"
+"2024-02-20 00:00:00.000",2024,Feb,8,2408,"2024-02-19 00:00:00.000"
+"2024-02-21 00:00:00.000",2024,Feb,8,2408,"2024-02-19 00:00:00.000"
+"2024-02-22 00:00:00.000",2024,Feb,8,2408,"2024-02-19 00:00:00.000"
+"2024-02-23 00:00:00.000",2024,Feb,8,2408,"2024-02-19 00:00:00.000"
+"2024-02-24 00:00:00.000",2024,Feb,8,2408,"2024-02-19 00:00:00.000"
+"2024-02-25 00:00:00.000",2024,Feb,8,2408,"2024-02-19 00:00:00.000"
+"2024-02-26 00:00:00.000",2024,Feb,9,2409,"2024-02-26 00:00:00.000"
+"2024-02-27 00:00:00.000",2024,Feb,9,2409,"2024-02-26 00:00:00.000"
+"2024-02-28 00:00:00.000",2024,Feb,9,2409,"2024-02-26 00:00:00.000"
+"2024-02-29 00:00:00.000",2024,Feb,9,2409,"2024-02-26 00:00:00.000"
+"2024-03-01 00:00:00.000",2024,Mar,9,2409,"2024-02-26 00:00:00.000"
+"2024-03-02 00:00:00.000",2024,Mar,9,2409,"2024-02-26 00:00:00.000"
+"2024-03-03 00:00:00.000",2024,Mar,9,2409,"2024-02-26 00:00:00.000"
+"2024-03-04 00:00:00.000",2024,Mar,10,2410,"2024-03-04 00:00:00.000"
+"2024-03-05 00:00:00.000",2024,Mar,10,2410,"2024-03-04 00:00:00.000"
+"2024-03-06 00:00:00.000",2024,Mar,10,2410,"2024-03-04 00:00:00.000"
+"2024-03-07 00:00:00.000",2024,Mar,10,2410,"2024-03-04 00:00:00.000"
+"2024-03-08 00:00:00.000",2024,Mar,10,2410,"2024-03-04 00:00:00.000"
+"2024-03-09 00:00:00.000",2024,Mar,10,2410,"2024-03-04 00:00:00.000"
+"2024-03-10 00:00:00.000",2024,Mar,10,2410,"2024-03-04 00:00:00.000"
+"2024-03-11 00:00:00.000",2024,Mar,11,2411,"2024-03-11 00:00:00.000"
+"2024-03-12 00:00:00.000",2024,Mar,11,2411,"2024-03-11 00:00:00.000"
+"2024-03-13 00:00:00.000",2024,Mar,11,2411,"2024-03-11 00:00:00.000"
+"2024-03-14 00:00:00.000",2024,Mar,11,2411,"2024-03-11 00:00:00.000"
+"2024-03-15 00:00:00.000",2024,Mar,11,2411,"2024-03-11 00:00:00.000"
+"2024-03-16 00:00:00.000",2024,Mar,11,2411,"2024-03-11 00:00:00.000"
+"2024-03-17 00:00:00.000",2024,Mar,11,2411,"2024-03-11 00:00:00.000"
+"2024-03-18 00:00:00.000",2024,Mar,12,2412,"2024-03-18 00:00:00.000"
+"2024-03-19 00:00:00.000",2024,Mar,12,2412,"2024-03-18 00:00:00.000"
+"2024-03-20 00:00:00.000",2024,Mar,12,2412,"2024-03-18 00:00:00.000"
+"2024-03-21 00:00:00.000",2024,Mar,12,2412,"2024-03-18 00:00:00.000"
+"2024-03-22 00:00:00.000",2024,Mar,12,2412,"2024-03-18 00:00:00.000"
+"2024-03-23 00:00:00.000",2024,Mar,12,2412,"2024-03-18 00:00:00.000"
+"2024-03-24 00:00:00.000",2024,Mar,12,2412,"2024-03-18 00:00:00.000"
+"2024-03-25 00:00:00.000",2024,Mar,13,2413,"2024-03-25 00:00:00.000"
+"2024-03-26 00:00:00.000",2024,Mar,13,2413,"2024-03-25 00:00:00.000"
+"2024-03-27 00:00:00.000",2024,Mar,13,2413,"2024-03-25 00:00:00.000"
+"2024-03-28 00:00:00.000",2024,Mar,13,2413,"2024-03-25 00:00:00.000"
+"2024-03-29 00:00:00.000",2024,Mar,13,2413,"2024-03-25 00:00:00.000"
+"2024-03-30 00:00:00.000",2024,Mar,13,2413,"2024-03-25 00:00:00.000"
+"2024-03-31 00:00:00.000",2024,Mar,13,2413,"2024-03-25 00:00:00.000"
+"2024-04-01 00:00:00.000",2024,Apr,14,2414,"2024-04-01 00:00:00.000"
+"2024-04-02 00:00:00.000",2024,Apr,14,2414,"2024-04-01 00:00:00.000"
+"2024-04-03 00:00:00.000",2024,Apr,14,2414,"2024-04-01 00:00:00.000"
+"2024-04-04 00:00:00.000",2024,Apr,14,2414,"2024-04-01 00:00:00.000"
+"2024-04-05 00:00:00.000",2024,Apr,14,2414,"2024-04-01 00:00:00.000"
+"2024-04-06 00:00:00.000",2024,Apr,14,2414,"2024-04-01 00:00:00.000"
+"2024-04-07 00:00:00.000",2024,Apr,14,2414,"2024-04-01 00:00:00.000"
+"2024-04-08 00:00:00.000",2024,Apr,15,2415,"2024-04-08 00:00:00.000"
+"2024-04-09 00:00:00.000",2024,Apr,15,2415,"2024-04-08 00:00:00.000"
+===== employees =====
+EmpID,Name,EmpStatus,JCDept,Company,Shift,ResourceGrpID,ResourceID,Department
+60002042,"Jacob McMahon",A,1020.0,AVA006,1,,,
+80000169,"Kevin Ankrum",A,5010.0,AVA006,8,,,
+80001494,"Mariah Liebert",A,8060.0,AVA006,8,,,
+80001708,"Alma Fine",A,2030.0,AVA006,1,,,
+60000159,"Saul Isiordia",A,1020.0,AVA006,1,,,
+80000655,"Reina Cruz Salazar",I,2030.0,AVA006,3,,,
+60000923,"Hung Nguyen",A,1020.0,AVA006,15,,,
+60000968,"Truc Nguyen",A,2030.0,AVA006,3,,,
+60001032,"Bich-Han Vu",A,3070.0,AVA006,3,,,
+60002013,"Tykeman Slater",A,4060.0,AVA006,6,,,
+60001039,"Joener Obed",A,2070.0,AVA006,4,,,
+60002056,"Yuriy Ovcharenko",A,2150.0,AVA006,3,,,
+60000674,"Tien Nguyen",A,2070.0,AVA006,17,,,
+60000547,"Maria Isiordia Rojas",A,3070.0,AVA006,1,,,
+60002029,"Louise Cox",A,4070.0,AVA006,8,,,
+60000639,"Nataliya Gladysh",I,2030.0,AVA006,6,,,
+80000513,"Yosbeli Bulgar",A,2030.0,AVA006,3,,,
+60001066,"Cinderella Ceasar",A,2030.0,AVA006,6,,,
+60001098,"Long Le",A,1010.0,AVA006,3,,,
+60000516,"Steve Freeman",A,5010.0,AVA006,1,,,
+60000687,"Silvia Hernandez",A,2180.0,AVA006,1,,,
+60000603,"Viet Nguyen",A,1010.0,AVA006,1,,,
+60002051,"Rodelo Catabay",A,1010.0,AVA006,15,,,
+60000881,"Bryan Clark",A,1010.0,AVA006,3,,,
+80000412,"Hellen Chavez",A,7200.0,AVA006,1,,,
+80000948,"Hawa Simkyombwe",A,2030.0,AVA006,3,,,
+60001085,"Jonathan Alex",I,1020.0,AVA006,15,,,
+80000528,"Maksim Belousov",A,1020.0,AVA006,15,,,
+60000860,"Tuyet Vo",A,2030.0,AVA006,6,,,
+60000916,"Traci Marie Farrar",A,3080.0,AVA006,1,,,
+60002016,"Shana Salkovitz",A,4020.0,AVA006,8,,,
+60000969,"Killian Dzamesi",A,4060.0,AVA006,12,,,
+80000685,"Corey Smith Dias",A,7200.0,AVA006,2,,,
+60000628,"Cristinel Spiridon",A,1010.0,AVA006,1,,,
+60002009,"Trang Nguyen",A,2030.0,AVA006,3,,,
+60000816,"Cecilia Sanchez",A,3070.0,AVA006,3,,,
+80000258,"Buck Motzko",A,7400.0,AVA006,8,,,
+80000725,"Azam Koushkbaghi",A,3050.0,AVA006,3,,,
+60000956,"Oleksandr Gavryuk",A,1010.0,AVA006,1,,,
+80001597,"Edward Wallace",I,1010.0,AVA006,5,,,
+80000410,"Erviantae Clay",A,3050.0,AVA006,1,,,
+80000608,"Don Atkinson",A,2070.0,AVA006,3,,,
+60000478,"Nicolae Zele",A,2070.0,AVA006,14,,,
+60000988,"Mai Pham",A,1020.0,AVA006,3,,,
+60001014,"Michael Myers",A,1100.0,AVA006,19,,,
+80001375,"Arcadio De Jesus",A,1010.0,AVA006,1,,,
+10000073,"Derek Mote",A,1010.0,AVA006,2,,,
+80000288,"Joseph Estes",A,1020.0,AVA006,4,,,
+80001690,"Anh Le",A,2030.0,AVA006,3,,,
+80001703,"Yency Martinez",A,2030.0,AVA006,1,,,
+80000859,"Bryson Pardua Somalpong",I,2070.0,AVA006,1,,,
+60002133,"Melquin Roldan Leon",A,2070.0,AVA006,15,,,
+60002095,"Nevena Kirova",A,2030.0,AVA006,6,,,
+60001092,"Loc White",A,3070.0,AVA006,1,,,
+60002072,"My Dao",A,1010.0,AVA006,5,,,
+80001692,"Cesar Guizar",A,1020.0,AVA006,3,,,
+60001020,"Duy Truong",A,1020.0,AVA006,1,,,
+60001005,"Veronika Kostenyuk",A,2030.0,AVA006,3,,,
+80000116,"Dang Nguyen",A,1010.0,AVA006,1,,,
+60000677,"Thu Thuy Nguyen",A,2030.0,AVA006,6,,,
+80001170,"Douglas Cann",A,5010.0,AVA006,11,,,
+60000483,"Florica Nedelcu",A,2030.0,AVA006,12,,,
+80000548,"Tuan Tran",A,1020.0,AVA006,3,,,
+60002145,"Marina Martinez Maldonado",A,3060.0,AVA006,18,,,
+80000981,"Jordan Hague",A,2070.0,AVA006,3,,,
+60000947,"Iuliana Jecan",A,2030.0,AVA006,16,,,
+60000759,"Jeremy Smith",A,5010.0,AVA006,2,,,
+80000206,"Mark Rainey",A,5010.0,AVA006,8,,,
+60002132,"Candes Walton",A,2030.0,AVA006,3,,,
+80000661,"Alecia Moloce",A,4150.0,AVA006,6,,,
+80000244,"Alexandra Rockowski",A,5010.0,AVA006,8,,,
+80000782,"MariaCornelia Nino-Johnson",A,2030.0,AVA006,1,,,
+60002118,"Caleb Pifer",A,3060.0,AVA006,3,,,
+60002102,"Jerry Chant",A,2180.0,AVA006,3,,,
+80000176,"Ty Underwood",A,7400.0,AVA006,8,,,
+60000959,"Florin Opris",A,3050.0,AVA006,1,,,
+80000684,"Murphy Lockhart",A,1100.0,AVA006,4,,,
+80000567,"Richard Snyder",A,4010.0,AVA006,8,,,
+80000465,"Andy Thilavanh",A,4150.0,AVA006,8,,,
+60002121,"Slava Kernogitski",A,1010.0,AVA006,1,,,
+80001663,"Ramil Catabay",A,1010.0,AVA006,3,,,
+80000880,"Phuong Huynh",A,2030.0,AVA006,3,,,
+CO-3,"Cobalt 3 Furnace",A,1100.0,AVA006,2,,,
+60000915,"Jose Isiordia Natividad",A,4060.0,AVA006,2,,,
+80000569,"Ivan Wentz",A,1210.0,AVA006,8,,,
+80001075,"Stephen Owens",A,1010.0,AVA006,5,,,
+60002058,"Olga Budzik",A,2030.0,AVA006,6,,,
+30011198,"Jennifer Rogers",A,1010.0,AVA006,2,,,
+60002028,"Alejandro Isiordia",A,4040.0,AVA006,1,,,
+80000315,"Oscar Sanchez",A,1010.0,AVA006,3,,,
+80000764,"Bale Shapucy",A,2070.0,AVA006,3,,,
+60002001,"Benigno Fernandez Ponce",A,2070.0,AVA006,1,,,
+60002043,"Kiem Duong",A,2180.0,AVA006,6,,,
+60000539,"Nadiya Buzhduga",A,2030.0,AVA006,6,,,
+60002098,"Quang Tieu",A,2030.0,AVA006,6,,,
+60000722,"Jennifer Jans",A,4070.0,AVA006,8,,,
+80000117,"Newlyn Retonong",A,2030.0,AVA006,3,,,
+80000377,"Joshua Pifer",A,2070.0,AVA006,3,,,
+80001356,"Eric Beebe",A,4060.0,AVA006,2,,,
+80000978,"Johnny Gonzalez",A,2070.0,AVA006,15,,,
+===== db19_old =====
+JobAsmbl_Company,Customer_Name,JobHead_ProdQty,JobHead_QtyCompleted,JobOper_OprSeq,JobOper_OpDesc,ResourceTimeUsed_ResourceGrpID,JCDept_JCDept,JCDept_Description,JobOper_LastLaborDate,Calculated_RemProdHrs,Calculated_OpCount,JobHead_PartNum,JobHead_PartDescription,OrderDtl_OrderQty,JobHead_SchedCode,JobHead_ProdCode,JobHead_JobHold_c,JobHead_CommentText,JobHead_JobNotes_c,JobHead_Company,JobHead_JobNum,JobHead_LotNum_c,JobHead_Remake_c,JobHead_Rework_c,JobHead_Rush_c,JobHead_Split_c,JobHead_TestCoupons_c,JobHead_Reference_c,Calculated_WIP,Calculated_RemainingOps,JobOper_CommentText,JobAsmbl_CommentText,JobAsmbl_TravelerLastPrint_c,JobAsmbl_TravPrintedBy_c,OrderRel_OrAckDate_c,Part_RefCategory
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000428,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000429,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000430,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000431,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000432,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000433,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000434,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000435,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000436,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000437,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000438,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000439,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000440,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000441,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000442,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000443,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000444,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000445,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000446,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000447,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000448,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000449,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000450,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000451,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000452,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000453,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000454,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000455,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000456,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000457,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000458,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000459,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000460,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000461,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000462,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000463,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000464,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000465,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000466,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000467,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000468,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000469,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000470,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000471,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000472,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000473,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000474,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000475,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000476,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000477,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000478,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000479,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000480,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000481,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000482,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000483,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000484,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000485,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000486,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000487,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000488,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000489,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000490,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000491,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000492,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000493,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000494,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000495,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000496,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000497,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000498,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000499,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000500,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000501,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000502,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000503,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000504,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000505,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000506,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000507,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000508,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000509,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000510,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000511,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000512,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000513,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000514,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000515,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000516,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000517,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000518,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000519,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000520,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000521,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000522,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000523,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000524,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000525,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000526,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000527,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+===== ref_cat =====
+PartNum,RefCat
+TR07932C,LATITUDE
+TR07925C,LATITUDE
+TR07938C,LATITUDE
+TR07928C,LATITUDE
+TR07949C,LATITUDE
+TR07921C,LATITUDE
+TR07920C,LATITUDE
+TR07916C,LATITUDE
+TR07936C,LATITUDE
+TR07924C,LATITUDE
+TR07914C,LATITUDE
+TR07914-SFG,LATITUDE
+TR07935C,LATITUDE
+TR07950C,LATITUDE
+TR07933C,LATITUDE
+TR07929C,LATITUDE
+TR07915C,LATITUDE
+TR07927C,LATITUDE
+TR07894C,LATITUDE
+TR07934C,LATITUDE
+TR08293M,LATITUDE
+TR08293-01-M,LATITUDE
+TR08295M,LATITUDE
+TR08295-01-M,LATITUDE
+TR08294M,LATITUDE
+TR08294-01-M,LATITUDE
+TR08301M,LATITUDE
+TR08930M,LATITUDE
+TR08939M,LATITUDE
+TR08303M,LATITUDE
+TR07917C,LATITUDE
+TR07895C,LATITUDE
+TR07923C,LATITUDE
+TR07931C,LATITUDE
+TR07939C,LATITUDE
+TR07944C,LATITUDE
+TR07930C,LATITUDE
+TR07937C,LATITUDE
+TR07940C,LATITUDE
+TR07951C,LATITUDE
+TR07922C,LATITUDE
+TR07941C,LATITUDE
+TR07918C,LATITUDE
+TR07919C,LATITUDE
+TR07926C,LATITUDE
+TR07929-01-C,LATITUDE
+TR07945C,LATITUDE
+TR07946C,LATITUDE
+TR07918-01-C,LATITUDE
+TR07935-01-C,LATITUDE
+TR08927M,LATITUDE
+TR08929M,LATITUDE
+TR08929-01-M,LATITUDE
+TR08933M,LATITUDE
+TR08292M,LATITUDE
+TR08299M,LATITUDE
+TR07916-SFG,LATITUDE
+TR07949-SFG,LATITUDE
+TR07921-01-C,LATITUDE
+TR07920-01-C,LATITUDE
+TR07936-01-C,LATITUDE
+TR07924-01-C,LATITUDE
+TR07937-01-C,LATITUDE
+TR07950-SFG,LATITUDE
+TR07933-01-C,LATITUDE
+TR07915-SFG,LATITUDE
+TR07927-01-C,LATITUDE
+TR07894-SFG,LATITUDE
+TR07934-01-C,LATITUDE
+TR08301-01-M,LATITUDE
+TR08930-01-M,LATITUDE
+TR08939-01-M,LATITUDE
+TR08303-01-M,LATITUDE
+TR07917-SFG,LATITUDE
+TR07895-SFG,LATITUDE
+TR07923-01-C,LATITUDE
+TR07931-01-C,LATITUDE
+TR07939-01-C,LATITUDE
+TR07944-SFG,LATITUDE
+TR07930-01-C,LATITUDE
+TR07940-01-C,LATITUDE
+TR07928-01-C,LATITUDE
+TR07922-01-C,LATITUDE
+TR07941-01-C,LATITUDE
+TR07919-01-C,LATITUDE
+TR07925-01-C,LATITUDE
+TR07926-01-C,LATITUDE
+TR07938-01-C,LATITUDE
+TR07945-SFG,LATITUDE
+TR07932-01-C,LATITUDE
+TR07946-SFG,LATITUDE
+TR08927-01-M,LATITUDE
+TR08933-01-M,LATITUDE
+TR08292-01-M,LATITUDE
+TR08299-01-M,LATITUDE
+TR-ULNAR-PIN-C,LATITUDE
+SY10973M,SYKNEE
+SN06027M,CUPPOS
+SY10966M,SYKNEE
+SY10972M,SYKNEE
+===== job_header =====
+JobClosed,ClosedDate,JobComplete,JobCompletionDate,JobNum,PartNum,RevisionNum,DrawNum,PartDescription,ProdQty,CommentText,OrigProdQty,SplitJob,LotNum_c,JobHold_c,JobHoldDesc_c,JobNotes_c,DrawRev_c,Company,JobReleased,QtyCompleted,EquipID,CustName,JobReleasedBy_c,JobReleasedDate_c,JobHoldInput_c,NewMfgPart_c,DropShip_c,ECN_c,NewPart_c,Prototype_c,Remake_c,Rework_c,Rush_c,Split_c,TestCoupons_c
+0,,0,,U0000000000430,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000429,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000433,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000428,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000431,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000434,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000436,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000432,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000437,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000435,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000441,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000438,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000443,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000440,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000439,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000442,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000444,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000448,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000445,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000446,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000449,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000447,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000453,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000450,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000455,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000456,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000457,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000452,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000451,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000454,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000461,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000458,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000459,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000460,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000463,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000466,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000462,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000468,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000464,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000470,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000471,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000465,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000467,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000469,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000475,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000476,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000472,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000478,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000473,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000474,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000481,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000477,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000479,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000484,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000485,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000486,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000480,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000488,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000482,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000490,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000491,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000492,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000483,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000487,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000489,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000496,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000493,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000494,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000499,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000495,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000497,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000501,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000503,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000502,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000505,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000498,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000507,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000508,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000500,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000504,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000511,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000512,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000506,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000509,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000510,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000513,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000514,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000515,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000516,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000520,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000517,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000522,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000518,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000524,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000519,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000526,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000527,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000528,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000521,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+0,,0,,U0000000000530,SN07428T,22.0,81046969,"Stiktite Coated Shell Size 54mm",48.0,,48.0,0,,0,,,A,AVA006,0,0,,,,,,0,0,0,0,0,0,0,0,0,0
+===== search_input =====
+SearchText
+" "
+===== job_operations =====
+===== labor_details =====
+===== ncmr =====
+===== db19 =====
+JobAsmbl_Company,Customer_Name,JobHead_ProdQty,JobHead_QtyCompleted,JobOper_OprSeq,JobOper_OpDesc,ResourceTimeUsed_ResourceGrpID,JCDept_JCDept,JCDept_Description,JobOper_LastLaborDate,Calculated_RemProdHrs,Calculated_OpCount,JobHead_PartNum,JobHead_PartDescription,OrderDtl_OrderQty,JobHead_SchedCode,JobHead_ProdCode,JobHead_JobHold_c,JobHead_CommentText,JobHead_JobNotes_c,JobHead_Company,JobHead_JobNum,JobHead_LotNum_c,JobHead_Remake_c,JobHead_Rework_c,JobHead_Rush_c,JobHead_Split_c,JobHead_TestCoupons_c,JobHead_Reference_c,Calculated_WIP,Calculated_RemainingOps,JobOper_CommentText,JobAsmbl_CommentText,JobAsmbl_TravelerLastPrint_c,JobAsmbl_TravPrintedBy_c,OrderRel_OrAckDate_c,Part_RefCategory
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000428,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000429,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000430,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000431,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000432,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000433,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000434,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000435,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000436,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000437,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000438,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000439,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000440,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000441,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000442,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000443,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000444,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000445,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000446,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000447,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000448,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000449,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000450,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000451,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000452,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000453,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000454,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000455,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000456,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000457,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000458,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000459,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000460,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000461,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000462,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000463,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000464,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000465,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000466,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000467,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000468,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000469,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000470,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000471,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000472,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000473,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000474,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000475,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000476,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000477,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000478,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000479,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000480,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000481,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000482,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000483,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000484,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000485,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000486,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000487,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000488,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000489,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000490,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000491,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000492,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000493,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000494,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000495,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000496,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000497,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000498,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000499,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000500,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000501,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000502,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000503,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000504,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000505,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000506,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000507,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000508,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000509,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000510,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000511,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000512,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000513,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000514,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000515,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000516,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000517,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000518,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000519,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000520,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000521,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000522,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000523,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000524,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000525,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000526,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+AVA006,,48.0,0,10.0,"Document Control Supply Chain",SPLDOC,4070.0,"Supply Chain",,19.97,19.0,SN07428T,"Stiktite Coated Shell Size 54mm",,NORMAL,41200.0,0,,,AVA006,U0000000000527,,0,0,0,0,0,,0,,"Print Job Traveler",,,,,ACETABSH
+===== shipments =====

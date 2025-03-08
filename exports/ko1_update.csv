@@ -1,0 +1,21 @@
+Category,Details
+High-Level Project Goal,Develop a scalable, modular, and efficient multi-agent AI assistant system for Jetson Orin Nano, utilizing NVIDIA Jetson Containers for optimized performance.
+Current Goal,Ensure all virtual environments and dependencies are correctly installed and isolated, with NVIDIA Jetson Containers providing optimized AI workload execution.
+Current Stage,Debugging and stabilizing virtual environment installations; transitioning AI workloads to NVIDIA Jetson Containers.
+Issue Being Addressed,Virtual environments are not properly isolating dependencies, leading to package installations in system Python instead of venvs. PyTorch installation within venvs is failing, and NVIDIA Jetson Containers need to be integrated for optimized execution.
+Verified Information,python3-venv was missing on the initial setup and is required for virtual environments.
+Verified Information,ensurepip is disabled by default on JetPack 6.0, requiring manual installation of pip inside venvs.
+Verified Information,Some dependencies (e.g., torch) were installed globally instead of inside venvs, causing ModuleNotFoundError.
+Verified Information,NVIDIA Jetson Containers (l4t-pytorch) are required for efficient AI workload execution on Jetson hardware.
+Verified Information,The system is running JetPack 6.0 with Ubuntu 22.04, and nvidia-container-toolkit needs to be installed for containerized AI workloads.
+Verified Information,The deactivate command fails when venvs are not correctly initialized or activated.
+Verified Information,The use of --no-cache-dir --force-reinstall ensures proper installation of dependencies within venvs.
+Verified Information,Docker installation initially failed due to containerd.io conflicting with containerd, requiring a manual removal of conflicting packages before reinstalling Docker.
+Verified Information,Docker has now been successfully installed and is running.
+Items Addressed,python3-venv and python3-pip have been installed to support virtual environments.
+Items Addressed,ensurepip is manually enabled in virtual environments to allow pip installation.
+Items Addressed,Virtual environments were deleted and recreated to ensure package isolation.
+Items Addressed,PyTorch was installed correctly inside venv using NVIDIA’s Jetson package index (l4t-pytorch).
+Items Addressed,Docker and NVIDIA Container Runtime have been set up for containerized execution of AI workloads.
+Items Addressed,nvidia-container-toolkit is installed and configured for GPU acceleration.
+Items Addressed,Conflicting containerd packages were removed, allowing successful installation of Docker, which is now running.

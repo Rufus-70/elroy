@@ -1,0 +1,5 @@
+database/*.csv
+database/*.csv
+data/*
+venv/
+logs/

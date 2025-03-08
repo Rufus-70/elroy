@@ -1,0 +1,68 @@
+Jetson Orin Nano System Assessment Report
+=========================================
+# R36 (release), REVISION: 3.0, GCID: 36923193, BOARD: generic, EABI: aarch64, DATE: Fri Jul 19 23:24:25 UTC 2024
+# KERNEL_VARIANT: oot
+TARGET_USERSPACE_LIB_DIR=nvidia
+TARGET_USERSPACE_LIB_DIR_PATH=usr/lib/aarch64-linux-gnu/nvidia
+\nCUDA Version: Cuda compilation tools, release 12.2, V12.2.140
+cuDNN Version: 8.9.4.25-1+cuda12.2
+8.9.4.25-1+cuda12.2
+8.9.4.25-1+cuda12.2
+TensorRT Version: 8.6.2.3-1+cuda12.2
+\nPython Version: Python 3.10.12
+\nCPU Info: Model name:                         Cortex-A78AE
+GPU Info: 03-01-2025 21:53:16 RAM 4647/7588MB (lfb 5x4MB) SWAP 1/20178MB (cached 0MB) CPU [1%@729,2%@806,3%@806,0%@806,2%@729,0%@729] GR3D_FREQ 0% cpu@54.625C soc2@53.968C soc0@51.937C gpu@54.687C tj@54.687C soc1@54.218C VDD_IN 5031mW/5031mW VDD_CPU_GPU_CV 553mW/553mW VDD_SOC 1505mW/1505mW
+03-01-2025 21:53:17 RAM 4647/7588MB (lfb 5x4MB) SWAP 1/20178MB (cached 0MB) CPU [1%@729,4%@729,2%@729,6%@729,1%@729,2%@729] GR3D_FREQ 0% cpu@54.5C soc2@53.968C soc0@52.093C gpu@54.812C tj@54.812C soc1@54.062C VDD_IN 4991mW/5011mW VDD_CPU_GPU_CV 514mW/533mW VDD_SOC 1505mW/1505mW
+03-01-2025 21:53:18 RAM 4650/7588MB (lfb 5x4MB) SWAP 1/20178MB (cached 0MB) CPU [9%@1510,5%@1510,10%@1510,26%@1510,17%@729,16%@729] GR3D_FREQ 0% cpu@54.687C soc2@54.093C soc0@51.875C gpu@54.375C tj@54.687C soc1@54.281C VDD_IN 5189mW/5070mW VDD_CPU_GPU_CV 632mW/566mW VDD_SOC 1505mW/1505mW
+03-01-2025 21:53:19 RAM 4639/7588MB (lfb 5x4MB) SWAP 1/20178MB (cached 0MB) CPU [3%@1036,14%@1510,8%@1510,10%@1510,0%@729,0%@729] GR3D_FREQ 0% cpu@54.906C soc2@54.093C soc0@51.906C gpu@54.437C tj@54.906C soc1@54.187C VDD_IN 5229mW/5110mW VDD_CPU_GPU_CV 632mW/582mW VDD_SOC 1505mW/1505mW
+Memory Info:                total        used        free      shared  buff/cache   available
+Mem:           7.4Gi       4.2Gi       334Mi       191Mi       2.8Gi       2.7Gi
+Swap:           19Gi       1.0Mi        19Gi
+Storage Info: Filesystem      Size  Used Avail Use% Mounted on
+/dev/mmcblk0p1  227G   95G  123G  44% /
+tmpfs           3.8G  172K  3.8G   1% /dev/shm
+tmpfs           1.5G   44M  1.5G   3% /run
+tmpfs           5.0M  4.0K  5.0M   1% /run/lock
+tmpfs           759M  124K  759M   1% /run/user/1000
+\nDocker Containers: ca9a13a7dfa9 deepseek-benchmark:latest Up 2 hours
+775f7ca7a18a nvcr.io/nvidia/l4t-pytorch:r35.2.1-pth2.0-py3 Exited (1) 4 hours ago
+72cced457381 nvcr.io/nvidia/l4t-pytorch:r35.2.1-pth2.0-py3 Exited (2) 5 hours ago
+9df4d6a4e058 nvcr.io/nvidia/l4t-pytorch:r35.2.1-pth2.0-py3 Exited (129) 5 hours ago
+c177345da228 nvcr.io/nvidia/pytorch:24.09-py3-igpu Exited (1) 2 days ago
+832fcbcffeea hello-world Exited (0) 5 days ago
+\nPyTorch GPU Test: 
+=============
+== PyTorch ==
+=============
+
+NVIDIA Release 24.09 (build 109635693)
+PyTorch Version 2.5.0a0+b465a58
+Container image Copyright (c) 2024, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+Copyright (c) 2014-2024 Facebook Inc.
+Copyright (c) 2011-2014 Idiap Research Institute (Ronan Collobert)
+Copyright (c) 2012-2014 Deepmind Technologies    (Koray Kavukcuoglu)
+Copyright (c) 2011-2012 NEC Laboratories America (Koray Kavukcuoglu)
+Copyright (c) 2011-2013 NYU                      (Clement Farabet)
+Copyright (c) 2006-2010 NEC Laboratories America (Ronan Collobert, Leon Bottou, Iain Melvin, Jason Weston)
+Copyright (c) 2006      Idiap Research Institute (Samy Bengio)
+Copyright (c) 2001-2004 Idiap Research Institute (Ronan Collobert, Samy Bengio, Johnny Mariethoz)
+Copyright (c) 2015      Google Inc.
+Copyright (c) 2015      Yangqing Jia
+Copyright (c) 2013-2016 The Caffe contributors
+All rights reserved.
+
+Various files include modifications (c) NVIDIA CORPORATION & AFFILIATES.  All rights reserved.
+
+This container image and its contents are governed by the NVIDIA Deep Learning Container License.
+By pulling and using the container, you accept the terms and conditions of this license:
+https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
+
+NOTE: CUDA Forward Compatibility mode ENABLED.
+  Using CUDA 12.6 driver version 560.35.03 with kernel driver version 540.3.0.
+  See https://docs.nvidia.com/deploy/cuda-compatibility/ for details.
+
+NOTE: The SHMEM allocation limit is set to the default of 64MB.  This may be
+   insufficient for PyTorch.  NVIDIA recommends the use of the following flags:
+   docker run --gpus all --ipc=host --ulimit memlock=-1 --ulimit stack=67108864 ...
+
+True

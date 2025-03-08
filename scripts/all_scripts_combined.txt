@@ -1,0 +1,1894 @@
+----- csv_load3.py -----
+import sqlite3
+import pandas as pd
+import os
+
+db_path = os.path.expanduser("~/projects/elroy/database/erp.db")
+csv_folder = os.path.expanduser("~/projects/elroy/database/csv/")
+
+# Connect to SQLite database
+conn = sqlite3.connect(db_path)
+
+# Mapping of CSV filenames to table names
+table_mapping = {
+    "DB19.csv": "db19",
+    "Shipments.csv": "shipments"
+}
+
+# Load each CSV into its respective table
+for file in os.listdir(csv_folder):
+    if file in table_mapping:
+        table_name = table_mapping[file]
+        csv_path = os.path.join(csv_folder, file)
+
+        df = pd.read_csv(csv_path)
+        df.to_sql(table_name, conn, if_exists="replace", index=False)
+
+        print(f"✅ Loaded {file} into {table_name}")
+
+conn.close()
+print("✅ All tables reloaded successfully.")
+
+----- data_importer.py -----
+#!/usr/bin/env python3
+"""
+ERP Data Import Script
+This script imports data from CSV files into the ERP database tables
+"""
+
+import sqlite3
+import pandas as pd
+import os
+import glob
+import sys
+from datetime import datetime
+
+# Database path
+DATABASE_PATH = '/home/richard/projects/elroy/database/erp.db'
+
+def connect_db():
+    """Connect to the database"""
+    try:
+        conn = sqlite3.connect(DATABASE_PATH)
+        print(f"✅ Connected to: {DATABASE_PATH}")
+        return conn
+    except sqlite3.Error as e:
+        print(f"❌ Connection error: {e}")
+        return None
+
+def find_csv_files(directory=None):
+    """Find CSV files in the specified directory or current directory"""
+    if directory is None:
+        # Default to current directory
+        directory = os.getcwd()
+    
+    # Find all CSV files
+    csv_files = glob.glob(os.path.join(directory, "*.csv"))
+    
+    if not csv_files:
+        print(f"❌ No CSV files found in {directory}")
+        return []
+    
+    print(f"✅ Found {len(csv_files)} CSV files in {directory}")
+    for file in csv_files:
+        size_kb = os.path.getsize(file) / 1024
+        print(f"  - {os.path.basename(file)} ({size_kb:.1f} KB)")
+    
+    return csv_files
+
+def preview_csv(file_path):
+    """Preview a CSV file to understand its structure"""
+    try:
+        # Try to read with various parameters to handle different formats
+        df = pd.read_csv(file_path)
+        print(f"\n📋 Preview of {os.path.basename(file_path)}:")
+        print(f"  - Rows: {len(df)}")
+        print(f"  - Columns: {', '.join(df.columns.tolist())}")
+        print("\nSample data (first 3 rows):")
+        print(df.head(3))
+        return df
+    except Exception as e:
+        print(f"❌ Error reading CSV file: {e}")
+        
+        # Try different encoding or delimiter
+        try:
+            print("Trying alternative parameters...")
+            df = pd.read_csv(file_path, encoding='latin1', sep=';')
+            print("✅ Successfully read with alternative parameters")
+            print(f"  - Rows: {len(df)}")
+            print(f"  - Columns: {', '.join(df.columns.tolist())}")
+            return df
+        except Exception as e2:
+            print(f"❌ Still unable to read CSV: {e2}")
+            return None
+
+def get_table_schema(conn, table_name):
+    """Get the schema of a table"""
+    try:
+        cursor = conn.cursor()
+        cursor.execute(f"PRAGMA table_info({table_name});")
+        columns = cursor.fetchall()
+        return [col[1] for col in columns]  # Column name is at index 1
+    except sqlite3.Error as e:
+        print(f"❌ Error getting schema for {table_name}: {e}")
+        return []
+
+def confirm_import(file_name, table_name, df, table_columns):
+    """Confirm with user before importing"""
+    print(f"\n⚠️ About to import {len(df)} rows from {file_name} into {table_name}")
+    print(f"CSV columns: {', '.join(df.columns.tolist())}")
+    print(f"Table columns: {', '.join(table_columns)}")
+    
+    # Check for column mismatches
+    missing_columns = [col for col in table_columns if col not in df.columns]
+    extra_columns = [col for col in df.columns if col not in table_columns]
+    
+    if missing_columns:
+        print(f"⚠️ Warning: Table columns missing from CSV: {', '.join(missing_columns)}")
+    if extra_columns:
+        print(f"⚠️ Warning: CSV columns not in table: {', '.join(extra_columns)}")
+    
+    confirm = input(f"Continue with import? (y/n): ")
+    return confirm.lower() == 'y'
+
+def import_csv_to_table(conn, file_path, table_name=None):
+    """Import a CSV file into a database table"""
+    # If table name not provided, use filename without extension
+    if table_name is None:
+        table_name = os.path.splitext(os.path.basename(file_path))[0]
+    
+    # Preview the CSV
+    df = preview_csv(file_path)
+    if df is None:
+        return False
+    
+    # Get table schema
+    table_columns = get_table_schema(conn, table_name)
+    if not table_columns:
+        print(f"❌ Table {table_name} not found in database")
+        return False
+    
+    # Confirm import
+    if not confirm_import(os.path.basename(file_path), table_name, df, table_columns):
+        print("❌ Import canceled")
+        return False
+    
+    try:
+        # Filter dataframe to only include columns that exist in the table
+        valid_columns = [col for col in df.columns if col in table_columns]
+        df_filtered = df[valid_columns]
+        
+        # Check if we have any valid columns
+        if not valid_columns:
+            print("❌ No matching columns found between CSV and table")
+            return False
+        
+        # Import data
+        print(f"📥 Importing {len(df_filtered)} rows with {len(valid_columns)} columns...")
+        df_filtered.to_sql(table_name, conn, if_exists='append', index=False)
+        
+        # Verify import
+        cursor = conn.cursor()
+        cursor.execute(f"SELECT COUNT(*) FROM {table_name};")
+        count = cursor.fetchone()[0]
+        print(f"✅ Import complete. Table {table_name} now has {count} rows")
+        return True
+    
+    except Exception as e:
+        print(f"❌ Error importing data: {e}")
+        return False
+
+def main():
+    """Main function"""
+    print("📊 ERP Data Import Script")
+    print("=" * 50)
+    
+    # Connect to database
+    conn = connect_db()
+    if not conn:
+        sys.exit(1)
+    
+    # Get CSV directory
+    csv_dir = input("Enter directory containing CSV files (or press Enter for Downloads): ")
+    if not csv_dir:
+        csv_dir = os.path.expanduser("~/Downloads")
+    print(f"Looking for CSV files in: {csv_dir}")
+    
+    # Find CSV files
+    csv_files = find_csv_files(csv_dir)
+    if not csv_files:
+        sys.exit(1)
+    
+    # Process each file
+    for i, file in enumerate(csv_files):
+        print(f"\n[{i+1}/{len(csv_files)}] Processing {os.path.basename(file)}")
+        
+        # Ask which table to import into
+        table_name = input(f"Enter table name to import into (or press Enter to use filename): ")
+        if not table_name:
+            table_name = os.path.splitext(os.path.basename(file))[0]
+        
+        # Import data
+        import_csv_to_table(conn, file, table_name)
+    
+    # Close connection
+    conn.close()
+    print("\n✅ Import process complete!")
+
+if __name__ == "__main__":
+    main()
+
+----- db_schema_report.py -----
+import sqlite3
+import os
+
+DB_PATH = os.path.expanduser("~/projects/elroy/database/erp.db")
+
+def get_table_list(cursor):
+    """Retrieve all table names from the database."""
+    cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
+    return [row[0] for row in cursor.fetchall()]
+
+def get_table_schema(cursor, table_name):
+    """Retrieve column details for a given table."""
+    cursor.execute(f"PRAGMA table_info({table_name});")
+    columns = cursor.fetchall()
+    schema = f"\n🔹 Table: {table_name}\n"
+    schema += "-" * 40 + "\n"
+    schema += "{:<20} {:<10} {:<10}\n".format("Column Name", "Type", "PK?")
+    schema += "-" * 40 + "\n"
+    
+    for col in columns:
+        schema += "{:<20} {:<10} {:<10}\n".format(col[1], col[2], "Yes" if col[5] else "No")
+    
+    return schema
+
+def get_foreign_keys(cursor, table_name):
+    """Retrieve foreign key relationships for a given table."""
+    cursor.execute(f"PRAGMA foreign_key_list({table_name});")
+    fks = cursor.fetchall()
+    if not fks:
+        return f"\n🔸 {table_name}: No foreign keys.\n"
+    
+    relationships = f"\n🔸 Foreign Keys in {table_name}\n"
+    relationships += "-" * 40 + "\n"
+    relationships += "{:<15} → {:<15} ({})\n".format("Column", "References Table", "References Column")
+    relationships += "-" * 40 + "\n"
+    
+    for fk in fks:
+        relationships += "{:<15} → {:<15} ({})\n".format(fk[3], fk[2], fk[4])
+    
+    return relationships
+
+def generate_schema_report():
+    """Generate and save a full database schema report."""
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
+
+    tables = get_table_list(cursor)
+    
+    report = "\n📌 **ERP Database Schema Report**\n" + "="*50
+    
+    for table in tables:
+        report += get_table_schema(cursor, table)
+        report += get_foreign_keys(cursor, table)
+        report += "\n"
+    
+    conn.close()
+
+    # Save report to file
+    report_path = os.path.expanduser("~/projects/elroy/docs/erp_schema_report.txt")
+    with open(report_path, "w") as f:
+        f.write(report)
+
+    print(f"✅ Schema report saved to: {report_path}")
+
+if __name__ == "__main__":
+    generate_schema_report()
+
+----- interactive.py -----
+import argparse
+import torch
+import time
+import os
+from transformers import AutoTokenizer, AutoModelForCausalLM
+
+def load_model(model_path):
+    """Load the model and tokenizer from the specified path."""
+    print(f"Loading model from: {model_path}")
+    if not os.path.exists(model_path):
+        raise FileNotFoundError(f"Model path {model_path} does not exist!")
+    
+    start_time = time.time()
+    tokenizer = AutoTokenizer.from_pretrained(model_path)
+    print(f"Tokenizer loaded in {time.time() - start_time:.2f} seconds")
+    
+    load_start_time = time.time()
+    # Load with appropriate settings for Jetson Orin Nano
+    model = AutoModelForCausalLM.from_pretrained(
+        model_path,
+        torch_dtype=torch.float16,
+        device_map="auto" # This will use CUDA if available
+    )
+    load_time = time.time() - load_start_time
+    print(f"Model loaded in {load_time:.2f} seconds")
+    
+    # Print memory usage
+    if torch.cuda.is_available():
+        memory_allocated = torch.cuda.memory_allocated() / (1024 ** 3)  # GB
+        memory_reserved = torch.cuda.memory_reserved() / (1024 ** 3)  # GB
+        print(f"GPU Memory allocated: {memory_allocated:.2f} GB")
+        print(f"GPU Memory reserved: {memory_reserved:.2f} GB")
+    
+    return model, tokenizer
+
+def generate_response(model, tokenizer, prompt, max_length=512, temperature=0.7):
+    """Generate a response from the model given a prompt."""
+    input_ids = tokenizer(prompt, return_tensors="pt").input_ids
+    
+    # Move to GPU if available
+    if torch.cuda.is_available():
+        input_ids = input_ids.cuda()
+        if not next(model.parameters()).is_cuda:
+            model = model.cuda()
+    
+    # Track tokens per second
+    start_time = time.time()
+    with torch.no_grad():
+        output = model.generate(
+            input_ids,
+            max_length=max_length,
+            temperature=temperature,
+            do_sample=True,
+            pad_token_id=tokenizer.eos_token_id
+        )
+    
+    inference_time = time.time() - start_time
+    output_text = tokenizer.decode(output[0], skip_special_tokens=True)
+    
+    # Calculate performance metrics
+    tokens_generated = output.shape[1] - input_ids.shape[1]
+    tokens_per_second = tokens_generated / inference_time if inference_time > 0 else 0
+    
+    return output_text, inference_time, tokens_per_second
+
+def interactive_session(model, tokenizer, max_length=512, temperature=0.7):
+    """Run an interactive session with the model."""
+    print("\n===== DeepSeek R1 Interactive Session =====")
+    print("Type 'exit', 'quit', or 'q' to end the session")
+    print("Type 'perf' to see performance metrics")
+    print("=============================================\n")
+    
+    perf_metrics = []
+    
+    while True:
+        prompt = input("\nYou: ")
+        
+        if prompt.lower() in ['exit', 'quit', 'q']:
+            break
+            
+        if prompt.lower() == 'perf':
+            if perf_metrics:
+                avg_tps = sum(tps for _, tps in perf_metrics) / len(perf_metrics)
+                avg_time = sum(time for time, _ in perf_metrics) / len(perf_metrics)
+                print(f"\nPerformance metrics over {len(perf_metrics)} queries:")
+                print(f"Average generation time: {avg_time:.2f} seconds")
+                print(f"Average tokens per second: {avg_tps:.2f}")
+                print(f"Memory allocated: {torch.cuda.memory_allocated() / (1024 ** 3):.2f} GB")
+            else:
+                print("No performance metrics available yet.")
+            continue
+            
+        print("\nGenerating response...")
+        response, inf_time, tps = generate_response(
+            model, tokenizer, prompt, max_length, temperature
+        )
+        
+        # Store metrics
+        perf_metrics.append((inf_time, tps))
+        
+        print(f"\nDeepSeek R1: {response}")
+        print(f"\n[Generated in {inf_time:.2f}s, {tps:.2f} tokens/s]")
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Interactive session with DeepSeek R1")
+    parser.add_argument("--model_path", type=str, default="/workspace/models/deepseek-r1-optimized",
+                        help="Path to the model directory")
+    parser.add_argument("--max_length", type=int, default=512,
+                        help="Maximum length of generated text")
+    parser.add_argument("--temperature", type=float, default=0.7,
+                        help="Sampling temperature (higher = more random)")
+    args = parser.parse_args()
+    
+    try:
+        model, tokenizer = load_model(args.model_path)
+        interactive_session(model, tokenizer, args.max_length, args.temperature)
+    except KeyboardInterrupt:
+        print("\nInteractive session terminated by user.")
+    except Exception as e:
+        print(f"\nError: {e}")
+
+----- quick_test.py -----
+#!/usr/bin/env python3
+"""
+Quick test script for ERP database validation
+This script focuses only on database validation without model dependencies
+"""
+
+import sqlite3
+import pandas as pd
+from datetime import datetime
+import sys
+import os
+import glob
+
+# Try several possible database paths
+POSSIBLE_PATHS = [
+    '/projects/elroy/database/erp.db',
+    '~/projects/elroy/database/erp.db',
+    os.path.expanduser('~/projects/elroy/database/erp.db'),
+    './erp.db',
+    '../database/erp.db'
+]
+
+# Look for SQLite database files in the project directory
+def find_db_files():
+    """Find potential SQLite database files"""
+    project_dir = os.path.expanduser('~/projects/elroy')
+    found_files = []
+    
+    for root, dirs, files in os.walk(project_dir):
+        for file in files:
+            if file.endswith('.db') or file.endswith('.sqlite') or file.endswith('.sqlite3'):
+                found_files.append(os.path.join(root, file))
+    
+    return found_files
+
+# Try to determine the correct database path
+def get_database_path():
+    """Try to determine the correct database path"""
+    # First try the predefined paths
+    for path in POSSIBLE_PATHS:
+        expanded_path = os.path.expanduser(path)
+        if os.path.exists(expanded_path):
+            print(f"Found database at: {expanded_path}")
+            return expanded_path
+    
+    # If not found, search for database files
+    found_files = find_db_files()
+    if found_files:
+        print(f"Found {len(found_files)} potential database files:")
+        for i, file in enumerate(found_files):
+            print(f"{i+1}. {file} ({os.path.getsize(file) / (1024*1024):.2f} MB)")
+        
+        if len(found_files) == 1:
+            print(f"Automatically selecting the only database found.")
+            return found_files[0]
+        else:
+            try:
+                choice = input("Enter the number of the database to use: ")
+                idx = int(choice) - 1
+                if 0 <= idx < len(found_files):
+                    return found_files[idx]
+            except (ValueError, IndexError):
+                pass
+    
+    # Ask user for path
+    user_path = input("Please enter the full path to your database file: ")
+    if os.path.exists(user_path):
+        return user_path
+    
+    print("Could not determine database path. Defaulting to /projects/elroy/database/erp.db")
+    return '/projects/elroy/database/erp.db'
+
+# Get database path
+DATABASE_PATH = get_database_path()
+
+def test_database_connection():
+    """Test if we can connect to the database"""
+    try:
+        conn = sqlite3.connect(DATABASE_PATH)
+        print(f"✅ Successfully connected to: {DATABASE_PATH}")
+        
+        # Check if file exists and get size
+        if os.path.exists(DATABASE_PATH):
+            size_mb = os.path.getsize(DATABASE_PATH) / (1024 * 1024)
+            print(f"  Database size: {size_mb:.2f} MB")
+        
+        conn.close()
+        return True
+    except sqlite3.Error as e:
+        print(f"❌ Database connection error: {e}")
+        return False
+
+def list_database_tables():
+    """List all tables in the database"""
+    try:
+        conn = sqlite3.connect(DATABASE_PATH)
+        cursor = conn.cursor()
+        cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
+        tables = cursor.fetchall()
+        
+        if not tables:
+            print("❌ No tables found in database!")
+            return False
+        
+        print("\n📋 Database Tables:")
+        print("-" * 50)
+        for i, table_name in enumerate(tables):
+            cursor.execute(f"SELECT COUNT(*) FROM {table_name[0]};")
+            row_count = cursor.fetchone()[0]
+            print(f"{i+1}. {table_name[0]} - {row_count:,} rows")
+        
+        conn.close()
+        return True
+    except sqlite3.Error as e:
+        print(f"❌ Error listing tables: {e}")
+        return False
+
+def run_simple_query(query, description):
+    """Run a simple query and show results"""
+    try:
+        conn = sqlite3.connect(DATABASE_PATH)
+        print(f"\n🔍 Testing: {description}")
+        print("-" * 50)
+        print(f"Query: {query}")
+        
+        df = pd.read_sql_query(query, conn)
+        
+        if df.empty:
+            print("⚠️ Query returned no results!")
+        else:
+            print(f"\n✅ Query returned {len(df)} rows")
+            print("\nSample Results:")
+            print(df.head(5))
+            
+        conn.close()
+        return df
+    except sqlite3.Error as e:
+        print(f"❌ Query error: {e}")
+        return pd.DataFrame()
+
+def quick_test():
+    """Run a quick test of the database"""
+    if not test_database_connection():
+        return False
+    
+    if not list_database_tables():
+        return False
+    
+    # Test some simple queries to verify database content
+    
+    # 1. Test date_table
+    run_simple_query(
+        "SELECT * FROM date_table LIMIT 5;",
+        "Basic date_table query"
+    )
+    
+    # 2. Test shipments
+    run_simple_query(
+        "SELECT * FROM shipments LIMIT 5;",
+        "Basic shipments query"
+    )
+    
+    # 3. Check columns in shipments
+    run_simple_query(
+        "PRAGMA table_info(shipments);",
+        "Shipments table structure"
+    )
+    
+    # 4. Test if ShipTotal exists
+    ship_total_test = run_simple_query(
+        "SELECT * FROM shipments WHERE ShipTotal IS NOT NULL LIMIT 5;",
+        "Testing ShipTotal column"
+    )
+    
+    # Adapt queries based on results
+    if ship_total_test.empty:
+        print("\n⚠️ ShipTotal column not found or contains no data")
+        # Check column names in shipments
+        print("\nAvailable columns in shipments:")
+        columns = run_simple_query("PRAGMA table_info(shipments);", "")
+        print(columns['name'].tolist())
+    
+    return True
+
+if __name__ == "__main__":
+    print("🚀 ERP Database Quick Test")
+    print(f"📅 {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    print("=" * 50)
+    
+    quick_test()
+    
+    print("\n✅ Quick test completed!")
+
+----- test_deepseek_memory.py -----
+import torch
+from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
+import psutil
+import time
+import gc
+
+def print_memory_usage():
+    """Print current memory usage statistics"""
+    process = psutil.Process()
+    print(f"CPU RAM: {process.memory_info().rss / (1024 * 1024):.2f} MB")
+    if torch.cuda.is_available():
+        for i in range(torch.cuda.device_count()):
+            print(f"GPU {i} Memory: {torch.cuda.memory_allocated(i) / (1024 * 1024):.2f} MB / {torch.cuda.get_device_properties(i).total_memory / (1024 * 1024):.2f} MB")
+
+# Configure model loading for low memory
+quantization_config = BitsAndBytesConfig(
+    load_in_4bit=True,
+    bnb_4bit_compute_dtype=torch.float16,
+    bnb_4bit_quant_type="nf4"
+)
+
+print("Initial memory usage:")
+print_memory_usage()
+
+# Load tokenizer first
+print("\nLoading tokenizer...")
+tokenizer = AutoTokenizer.from_pretrained("/models", trust_remote_code=True)
+
+print("\nMemory after loading tokenizer:")
+print_memory_usage()
+
+# Load model with memory optimization
+print("\nLoading model with 4-bit quantization...")
+try:
+    model = AutoModelForCausalLM.from_pretrained(
+        "/models",
+        quantization_config=quantization_config,
+        device_map="auto",
+        trust_remote_code=True,
+        torch_dtype=torch.float16,
+        low_cpu_mem_usage=True
+    )
+
+    print("\nMemory after loading model:")
+    print_memory_usage()
+
+    # Test inference
+    prompt = "Explain neural networks in one paragraph."
+    print(f"\nGenerating response for: '{prompt}'")
+
+    inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
+
+    start_time = time.time()
+    with torch.no_grad():
+        outputs = model.generate(**inputs, max_length=100)
+    end_time = time.time()
+
+    response = tokenizer.decode(outputs[0], skip_special_tokens=True)
+
+    print(f"\nGeneration time: {end_time - start_time:.2f} seconds")
+    print(f"Response: {response}")
+
+    print("\nFinal memory usage:")
+    print_memory_usage()
+
+except Exception as e:
+    print(f"Error loading or running model: {e}")
+
+# Clean up
+print("\nCleaning up...")
+del model
+del tokenizer
+gc.collect()
+if torch.cuda.is_available():
+    torch.cuda.empty_cache()
+
+print("\nMemory after cleanup:")
+print_memory_usage()
+
+----- test_deepseek.py -----
+from transformers import AutoModelForCausalLM, AutoTokenizer
+import torch
+import time
+
+# Path is now the mount point directly
+model_path = "/models"
+
+# Load model and tokenizer
+print(f"Loading model from: {model_path}")
+tokenizer = AutoTokenizer.from_pretrained(model_path, trust_remote_code=True)
+model = AutoModelForCausalLM.from_pretrained(
+    model_path, 
+    torch_dtype=torch.float16,
+    device_map="auto",
+    trust_remote_code=True
+)
+
+# Verify device
+device = next(model.parameters()).device
+print(f'Using device: {device}')
+
+# Test inference
+prompt = "Explain the advantages of transformer models in three sentences."
+input_ids = tokenizer(prompt, return_tensors='pt').to(device)
+
+# Time the inference
+start_time = time.time()
+outputs = model.generate(**input_ids, max_length=100)
+end_time = time.time()
+
+# Print results
+print(f'Generation time: {end_time - start_time:.2f} seconds')
+print('Generated text:')
+print(tokenizer.decode(outputs[0], skip_special_tokens=True))
+
+----- validate_queries.py -----
+import sqlite3
+import os
+
+# Path to your ERP database file
+DB_PATH = os.path.expanduser("~/projects/elroy/database/erp.db")
+
+# Define your SQL queries using the ERP schema columns.
+queries = {
+    "MTD_Shipments": {
+         "query": """
+            SELECT 
+                strftime('%Y-%m', ShipDate) AS Month, 
+                COUNT(*) AS TotalShipments
+            FROM shipments
+            WHERE ShipDate >= date('now', 'start of month')
+            GROUP BY Month;
+         """,
+         "expected_rows": 1  # Typically one row for the current month
+    },
+    "Daily_Shipments": {
+         "query": """
+            SELECT 
+                s.ShipDate, 
+                r.RefCat, 
+                s.PartNum
+            FROM shipments s
+            JOIN ref_cat r ON s.PartNum = r.PartNum
+            WHERE s.ShipDate >= date('now', '-30 days')
+            ORDER BY s.ShipDate DESC;
+         """,
+         "expected_rows": None  # Review output manually
+    }
+    # Add further queries as needed, ensuring you use only the defined columns.
+}
+
+def run_query(cursor, query):
+    """Executes a SQL query and returns all results."""
+    cursor.execute(query)
+    return cursor.fetchall()
+
+def validate_query(cursor, name, query, expected_rows):
+    """Runs a query, prints a summary of results, and checks expected rows if provided."""
+    print(f"Validating query: {name}")
+    results = run_query(cursor, query)
+    row_count = len(results)
+    print(f"Rows returned: {row_count}")
+    
+    if expected_rows is not None:
+        if row_count != expected_rows:
+            print(f"❌ Mismatch: Expected {expected_rows} rows, but got {row_count}")
+        else:
+            print("✅ Row count matches expected.")
+    else:
+        print("No expected row count provided. Please review the output manually.")
+    
+    print("Sample output (first 3 rows):")
+    for row in results[:3]:
+        print(row)
+    print("-" * 40)
+    return results
+
+def main():
+    # Connect to the ERP database
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
+    
+    validated_queries = {}
+    
+    # Loop over each query definition, validate, and store those that return data.
+    for name, data in queries.items():
+        results = validate_query(cursor, name, data["query"], data.get("expected_rows"))
+        if len(results) > 0:
+            validated_queries[name] = data["query"]
+    
+    # Save the validated query templates to a file for later use by the AI integration.
+    templates_path = os.path.expanduser("~/projects/elroy/docs/validated_query_templates.txt")
+    with open(templates_path, "w") as f:
+        for name, query in validated_queries.items():
+            f.write(f"--- {name} ---\n")
+            f.write(query.strip() + "\n\n")
+    
+    print(f"✅ Validated query templates have been saved to: {templates_path}")
+    
+    conn.close()
+
+if __name__ == "__main__":
+    main()
+
+----- verify_gpu.py -----
+#!/usr/bin/env python3
+import argparse
+import torch
+import numpy as np
+import time
+import os
+import sys
+
+def verify_gpu():
+    """Basic GPU verification"""
+    print("\n===== GPU VERIFICATION =====")
+    print(f"PyTorch version: {torch.__version__}")
+    print(f"CUDA available: {torch.cuda.is_available()}")
+    
+    if not torch.cuda.is_available():
+        print("GPU acceleration is NOT AVAILABLE")
+        return False
+    
+    print(f"CUDA version: {torch.version.cuda}")
+    print(f"GPU count: {torch.cuda.device_count()}")
+    print(f"GPU name: {torch.cuda.get_device_name(0)}")
+    
+    # Check memory usage
+    print(f"Current GPU memory usage: {torch.cuda.memory_allocated() / 1024**2:.2f} MB")
+    
+    # Run simple tensor operations
+    print("Running test tensor operations on GPU...")
+    a = torch.randn(2000, 2000).cuda()
+    b = torch.randn(2000, 2000).cuda()
+    
+    start = time.time()
+    c = torch.matmul(a, b)
+    torch.cuda.synchronize()
+    end = time.time()
+    
+    print(f"Matrix multiplication time: {end - start:.4f} seconds")
+    print(f"GPU memory after operations: {torch.cuda.memory_allocated() / 1024**2:.2f} MB")
+    
+    # Compare with CPU
+    a_cpu = a.cpu()
+    b_cpu = b.cpu()
+    c_cpu = torch.matmul(a_cpu, b_cpu)
+    
+    max_diff = torch.max(torch.abs(c_cpu - c.cpu())).item()
+    print(f"Max difference between CPU and GPU results: {max_diff:.10f}")
+    
+    if max_diff > 0.1:
+        print("WARNING: Significant precision differences detected")
+    
+    return True
+
+def check_model(model_path):
+    """Check if the model path exists and try to load the model"""
+    print(f"\n===== MODEL CHECK =====")
+    print(f"Model path: {model_path}")
+    
+    # Check if path exists
+    if os.path.exists(model_path):
+        print(f"✓ Model path exists")
+        
+        # Check if it looks like a model directory
+        if os.path.isfile(os.path.join(model_path, "config.json")):
+            print(f"✓ Found config.json - looks like a valid model directory")
+            return True
+        else:
+            print(f"✗ No config.json found - may not be a valid model directory")
+            # List contents to help debug
+            print("\nDirectory contents:")
+            try:
+                for item in os.listdir(model_path):
+                    print(f"  - {item}")
+            except Exception as e:
+                print(f"Error listing directory: {e}")
+    else:
+        print(f"✗ Model path does not exist")
+        
+        # Try to help diagnose
+        parent_dir = os.path.dirname(model_path)
+        if os.path.exists(parent_dir):
+            print(f"\nParent directory exists. Contents of {parent_dir}:")
+            try:
+                for item in os.listdir(parent_dir):
+                    print(f"  - {item}")
+            except Exception as e:
+                print(f"Error listing parent directory: {e}")
+    
+    return False
+    
+def main():
+    parser = argparse.ArgumentParser(description="Verify GPU and model")
+    parser.add_argument("--model_path", type=str, required=True, help="Path to model directory")
+    args = parser.parse_args()
+    
+    print("====== DeepSeek R1 Verification ======")
+    
+    # Verify GPU first
+    gpu_ok = verify_gpu()
+    
+    # Then check model path
+    model_ok = check_model(args.model_path)
+    
+    print("\n===== VERIFICATION SUMMARY =====")
+    print(f"GPU Status: {'✓ OK' if gpu_ok else '✗ ISSUES DETECTED'}")
+    print(f"Model Status: {'✓ OK' if model_ok else '✗ ISSUES DETECTED'}")
+    print("================================")
+
+if __name__ == "__main__":
+    main()
+
+----- your_ui_script.py -----
+import requests
+import streamlit as st
+
+st.title("LLM Model Debugging")
+
+# Query Ollama API
+try:
+    response = requests.get("http://localhost:11434/api/tags")
+    response_json = response.json()
+    st.write("Ollama API Response:", response_json)
+except Exception as e:
+    st.error(f"Error querying Ollama: {e}")
+
+----- audit_environment.sh -----
+#!/bin/bash
+# audit_environment.sh
+# This script performs an audit of system hardware, software, and network configurations.
+# Output is written to environment_setup.txt
+
+OUTPUT_FILE="environment_setup.txt"
+echo "==== Environment Setup Audit ====" > "$OUTPUT_FILE"
+echo "Timestamp: $(date)" >> "$OUTPUT_FILE"
+echo "" >> "$OUTPUT_FILE"
+
+# 1. Host & OS Information
+echo "=== Host & OS Information ===" >> "$OUTPUT_FILE"
+echo "Hostname: $(hostname)" >> "$OUTPUT_FILE"
+echo "OS Information:" >> "$OUTPUT_FILE"
+uname -a >> "$OUTPUT_FILE"
+echo "" >> "$OUTPUT_FILE"
+
+# 2. CPU & Memory Details
+echo "=== CPU Information ===" >> "$OUTPUT_FILE"
+lscpu >> "$OUTPUT_FILE"
+echo "" >> "$OUTPUT_FILE"
+
+echo "=== Memory Information ===" >> "$OUTPUT_FILE"
+free -h >> "$OUTPUT_FILE"
+echo "" >> "$OUTPUT_FILE"
+
+# 3. Disk and Storage Information
+echo "=== Disk Information ===" >> "$OUTPUT_FILE"
+lsblk >> "$OUTPUT_FILE"
+echo "" >> "$OUTPUT_FILE"
+
+# 4. BIOS/Firmware Information
+echo "=== BIOS/Firmware Information ===" >> "$OUTPUT_FILE"
+sudo dmidecode -t bios >> "$OUTPUT_FILE" 2>/dev/null
+echo "" >> "$OUTPUT_FILE"
+
+# 5. Container Host Details
+echo "=== Docker Information ===" >> "$OUTPUT_FILE"
+echo "Docker Version:" >> "$OUTPUT_FILE"
+docker version >> "$OUTPUT_FILE" 2>/dev/null
+echo "" >> "$OUTPUT_FILE"
+
+echo "Docker Info:" >> "$OUTPUT_FILE"
+docker info >> "$OUTPUT_FILE" 2>/dev/null
+echo "" >> "$OUTPUT_FILE"
+
+echo "Docker Compose Version:" >> "$OUTPUT_FILE"
+docker-compose version >> "$OUTPUT_FILE" 2>/dev/null
+echo "" >> "$OUTPUT_FILE"
+
+# 6. Network Information
+echo "=== Network Interfaces ===" >> "$OUTPUT_FILE"
+ip addr >> "$OUTPUT_FILE"
+echo "" >> "$OUTPUT_FILE"
+
+# 7. Recent System Logs (Last 50 lines)
+echo "=== Recent System Logs (Last 50 lines) ===" >> "$OUTPUT_FILE"
+dmesg | tail -n 50 >> "$OUTPUT_FILE"
+echo "" >> "$OUTPUT_FILE"
+
+# Final Message
+echo "Audit completed. See '$OUTPUT_FILE' for details."
+
+----- audit_file_structure.sh -----
+#!/bin/bash
+# audit_file_structure.sh
+# This script captures a summary of the project file structure for the /home/richard/projects/elroy directory.
+# It lists all directories and provides a file count for each.
+
+PROJECT_DIR="/home/richard/projects/elroy"
+OUTPUT_FILE="project_file_structure_summary.txt"
+
+echo "Project File Structure Summary" > "$OUTPUT_FILE"
+echo "Base Directory: $PROJECT_DIR" >> "$OUTPUT_FILE"
+echo "----------------------------------------" >> "$OUTPUT_FILE"
+echo "" >> "$OUTPUT_FILE"
+
+# List all directories with a file count summary
+find "$PROJECT_DIR" -type d | while read -r dir; do
+    file_count=$(find "$dir" -maxdepth 1 -type f | wc -l)
+    echo "$dir: $file_count files" >> "$OUTPUT_FILE"
+done
+
+echo "" >> "$OUTPUT_FILE"
+echo "Total directories: $(find "$PROJECT_DIR" -type d | wc -l)" >> "$OUTPUT_FILE"
+echo "Total files: $(find "$PROJECT_DIR" -type f | wc -l)" >> "$OUTPUT_FILE"
+
+echo "Summary complete. See '$OUTPUT_FILE' for details."
+
+----- combine_all.sh -----
+#!/bin/bash
+# combine_txt_files.sh
+# This script concatenates all .txt files in the current directory into one file named all_texts_combined.txt.
+
+OUTPUT_FILE="all_texts_combined.txt"
+
+# Empty the output file if it exists
+> "$OUTPUT_FILE"
+
+# Loop through each .txt file and append its contents with a header indicating the filename.
+for file in *.txt; do
+    if [ -f "$file" ]; then
+        echo "----- $file -----" >> "$OUTPUT_FILE"
+        cat "$file" >> "$OUTPUT_FILE"
+        echo "" >> "$OUTPUT_FILE"
+    fi
+done
+
+echo "Combined all .txt files into $OUTPUT_FILE."
+	
+
+----- combine_sh_py.sh -----
+#!/bin/bash
+# combine_py_sh_files.sh
+# This script concatenates all .py and .sh files in the current directory into one file named all_scripts_combined.txt.
+
+OUTPUT_FILE="all_scripts_combined.txt"
+
+# Empty the output file if it exists
+> "$OUTPUT_FILE"
+
+# Loop through each .py and .sh file and append its contents with a header.
+for file in *.py *.sh; do
+    if [ -f "$file" ]; then
+        echo "----- $file -----" >> "$OUTPUT_FILE"
+        cat "$file" >> "$OUTPUT_FILE"
+        echo "" >> "$OUTPUT_FILE"
+    fi
+done
+
+echo "Combined all .py and .sh files into $OUTPUT_FILE."
+
+----- db_export.sh -----
+#!/bin/bash
+
+# Set database and export directory paths
+DB_FILE="$HOME/projects/elroy/db/agendic_agent.db"
+EXPORT_DIR="$HOME/projects/elroy/exports"
+mkdir -p "$EXPORT_DIR"
+
+# Tables to export
+TABLES=("erp" "ka1" "ko1" "ob1" "qms" "sme")
+
+# Export each table in lowercase filenames
+for TABLE in "${TABLES[@]}"; do
+    echo "🔹 Exporting $TABLE Data..."
+    sqlite3 -header -csv "$DB_FILE" "SELECT * FROM $TABLE;" > "$EXPORT_DIR/${TABLE}_export.csv"
+    echo "✅ $TABLE data exported to $EXPORT_DIR/${TABLE}_export.csv"
+done
+
+# Export Database Schema
+echo "🔹 Fetching Database Schema..."
+sqlite3 "$DB_FILE" ".schema" > "$EXPORT_DIR/database_schema.sql"
+echo "✅ Database schema exported to $EXPORT_DIR/database_schema.sql"
+
+# Log System Data Updates
+echo "🔹 Updating System Database with Export Log..."
+sqlite3 "$DB_FILE" "INSERT INTO system_updates (timestamp, action, details) VALUES (CURRENT_TIMESTAMP, 'EXPORT', 'Exported all tables (erp, ka1, ko1, ob1, qms, sme) and database schema.');"
+echo "✅ System database updated with export log."
+
+----- elroy_audit.sh -----
+#!/bin/bash
+# Elroy Audit Script: Reviews Docker configurations, optimizes settings,
+# verifies storage drivers, and sets up a sample orchestration using Docker Compose V2.
+# All output is redirected to "elroy_audit.txt".
+
+OUTPUT_FILE="elroy_audit.txt"
+COMPOSE_FILE="docker-compose.sample.yml"
+
+# Clear the output file or create it if it doesn't exist.
+echo "Elroy Audit Script - Container Runtime and Orchestration Check" > "$OUTPUT_FILE"
+echo "Date: $(date)" >> "$OUTPUT_FILE"
+echo "-------------------------------------" >> "$OUTPUT_FILE"
+
+# --- 3.1 Reviewing Existing Docker Configurations ---
+echo "Step 3.1: Reviewing Existing Docker Configurations" >> "$OUTPUT_FILE"
+echo "1. Docker Version:" >> "$OUTPUT_FILE"
+docker version >> "$OUTPUT_FILE" 2>&1
+
+echo "-------------------------------------" >> "$OUTPUT_FILE"
+echo "2. Docker Info:" >> "$OUTPUT_FILE"
+docker info >> "$OUTPUT_FILE" 2>&1
+
+echo "-------------------------------------" >> "$OUTPUT_FILE"
+echo "3. Docker Daemon Configuration (/etc/docker/daemon.json):" >> "$OUTPUT_FILE"
+if [ -f /etc/docker/daemon.json ]; then
+    cat /etc/docker/daemon.json >> "$OUTPUT_FILE" 2>&1
+else
+    echo "File /etc/docker/daemon.json not found." >> "$OUTPUT_FILE"
+fi
+
+echo "-------------------------------------" >> "$OUTPUT_FILE"
+echo "4. Docker Logs (last 60 minutes):" >> "$OUTPUT_FILE"
+sudo journalctl -u docker --since "60 minutes ago" >> "$OUTPUT_FILE" 2>&1
+
+# --- 3.2 Optimizing Docker Engine Settings ---
+echo "-------------------------------------" >> "$OUTPUT_FILE"
+echo "Step 3.2: Optimizing Docker Engine Settings" >> "$OUTPUT_FILE"
+echo "Backing up current /etc/docker/daemon.json to /etc/docker/daemon.json.bak" >> "$OUTPUT_FILE"
+if [ -f /etc/docker/daemon.json ]; then
+    sudo cp /etc/docker/daemon.json /etc/docker/daemon.json.bak
+    echo "Backup complete." >> "$OUTPUT_FILE"
+else
+    echo "/etc/docker/daemon.json does not exist, skipping backup." >> "$OUTPUT_FILE"
+fi
+
+echo "Restarting Docker service..." >> "$OUTPUT_FILE"
+sudo systemctl restart docker >> "$OUTPUT_FILE" 2>&1
+echo "Docker service status:" >> "$OUTPUT_FILE"
+sudo systemctl status docker --no-pager >> "$OUTPUT_FILE" 2>&1
+
+# --- 3.3 Verifying Container Storage Drivers ---
+echo "-------------------------------------" >> "$OUTPUT_FILE"
+echo "Step 3.3: Verifying Container Storage Drivers" >> "$OUTPUT_FILE"
+echo "Current Storage Driver:" >> "$OUTPUT_FILE"
+docker info | grep "Storage Driver" >> "$OUTPUT_FILE" 2>&1
+
+echo "Docker system disk usage:" >> "$OUTPUT_FILE"
+docker system df >> "$OUTPUT_FILE" 2>&1
+
+# --- 3.4 Setting Up Orchestration Tools (Docker Compose V2 Example) ---
+echo "-------------------------------------" >> "$OUTPUT_FILE"
+echo "Step 3.4: Setting Up Orchestration Tools (Docker Compose Example)" >> "$OUTPUT_FILE"
+echo "Creating a sample docker-compose.yml file..." >> "$OUTPUT_FILE"
+
+cat <<EOF > "$COMPOSE_FILE"
+version: '3.8'
+services:
+  web:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    networks:
+      - webnet
+
+  app:
+    image: hello-world
+    depends_on:
+      - web
+    networks:
+      - webnet
+
+networks:
+  webnet:
+    driver: bridge
+EOF
+
+echo "Sample docker-compose.yml created at $COMPOSE_FILE" >> "$OUTPUT_FILE"
+echo "Starting Docker Compose services..." >> "$OUTPUT_FILE"
+docker compose -f "$COMPOSE_FILE" up -d >> "$OUTPUT_FILE" 2>&1
+echo "Docker Compose service status:" >> "$OUTPUT_FILE"
+docker compose -f "$COMPOSE_FILE" ps >> "$OUTPUT_FILE" 2>&1
+
+echo "Elroy Audit Script Completed." >> "$OUTPUT_FILE"
+
+----- export_all.sh -----
+#!/bin/bash
+
+# Path to the ERP database
+DB=~/projects/elroy/database/erp.db
+
+# Output file name
+OUTFILE=all_export.txt
+
+# Remove any existing export file
+rm -f "$OUTFILE"
+
+# Export 100 rows from each table into the single text file.
+echo "===== date_table =====" >> "$OUTFILE"
+sqlite3 "$DB" -header -csv "SELECT * FROM date_table LIMIT 100;" >> "$OUTFILE"
+
+echo "===== employees =====" >> "$OUTFILE"
+sqlite3 "$DB" -header -csv "SELECT * FROM employees LIMIT 100;" >> "$OUTFILE"
+
+echo "===== db19_old =====" >> "$OUTFILE"
+sqlite3 "$DB" -header -csv "SELECT * FROM db19_old LIMIT 100;" >> "$OUTFILE"
+
+echo "===== ref_cat =====" >> "$OUTFILE"
+sqlite3 "$DB" -header -csv "SELECT * FROM ref_cat LIMIT 100;" >> "$OUTFILE"
+
+echo "===== job_header =====" >> "$OUTFILE"
+sqlite3 "$DB" -header -csv "SELECT * FROM job_header LIMIT 100;" >> "$OUTFILE"
+
+echo "===== search_input =====" >> "$OUTFILE"
+sqlite3 "$DB" -header -csv "SELECT * FROM search_input LIMIT 100;" >> "$OUTFILE"
+
+echo "===== job_operations =====" >> "$OUTFILE"
+sqlite3 "$DB" -header -csv "SELECT * FROM job_operations LIMIT 100;" >> "$OUTFILE"
+
+echo "===== labor_details =====" >> "$OUTFILE"
+sqlite3 "$DB" -header -csv "SELECT * FROM labor_details LIMIT 100;" >> "$OUTFILE"
+
+echo "===== ncmr =====" >> "$OUTFILE"
+sqlite3 "$DB" -header -csv "SELECT * FROM ncmr LIMIT 100;" >> "$OUTFILE"
+
+echo "===== db19 =====" >> "$OUTFILE"
+sqlite3 "$DB" -header -csv "SELECT * FROM db19 LIMIT 100;" >> "$OUTFILE"
+
+echo "===== shipments =====" >> "$OUTFILE"
+sqlite3 "$DB" -header -csv "SELECT * FROM shipments LIMIT 100;" >> "$OUTFILE"
+
+# Delete any CSV files in the current directory (if previously created)
+rm -f *.csv
+
+echo "Export completed into $OUTFILE"
+
+----- full_database_export.sh -----
+#!/bin/bash
+
+# Set database path
+DB_FILE="$HOME/projects/elroy/db/agendic_agent.db"
+
+# Function to display table data
+function display_table() {
+    local table_name=$1
+    echo "\n🔹 Displaying data from table: $table_name"
+    sqlite3 -column -header "$DB_FILE" "SELECT * FROM $table_name LIMIT 10;"
+    echo "------------------------------------------------------"
+}
+
+# Fetch all table names
+TABLES=$(sqlite3 "$DB_FILE" ".tables")
+
+# Loop through each table and display its contents
+for TABLE in $TABLES; do
+    display_table "$TABLE"
+done
+
+----- full_system_info.sh -----
+#!/bin/bash
+# full_system_info.sh
+# This script collects a full system test and report, including:
+# - Installed Python packages in the venv
+# - All Docker containers and images
+# - The location and version (if available) for critical binaries (ollama and r1)
+# - A process snapshot for critical services (ollama and r1)
+# - Basic system resource information (uptime, disk usage, etc.)
+#
+# The report is saved in the logs folder as full_system_info_report.txt
+
+BASE_DIR=~/projects/elroy
+LOG_DIR="$BASE_DIR/logs"
+REPORT_FILE="$LOG_DIR/full_system_info_report.txt"
+
+# Ensure logs directory exists
+mkdir -p "$LOG_DIR"
+
+# Start report
+{
+    echo "========== Full System Information Report =========="
+    echo "Date: $(date)"
+    echo "---------------------------------------------------"
+
+    echo "### Python Virtual Environment Libraries"
+    if [ -d "$BASE_DIR/venv" ] && [ -f "$BASE_DIR/venv/bin/activate" ]; then
+        source "$BASE_DIR/venv/bin/activate"
+        echo "Python version: $(python --version 2>&1)"
+        echo "Installed packages (pip freeze):"
+        pip freeze
+        deactivate
+    else
+        echo "Virtual environment not found at $BASE_DIR/venv"
+    fi
+    echo "---------------------------------------------------"
+
+    echo "### Docker Containers and Images"
+    echo "All Docker Containers (running and stopped):"
+    docker ps -a --format "table {{.Names}}\t{{.Status}}\t{{.Image}}"
+    echo ""
+    echo "Docker Images:"
+    docker images --format "table {{.Repository}}\t{{.Tag}}\t{{.ID}}\t{{.Size}}"
+    echo "---------------------------------------------------"
+
+    echo "### Critical Binaries Information"
+    for bin in ollama r1; do
+        echo "Checking for binary: $bin"
+        BIN_PATH=$(which $bin 2>/dev/null)
+        if [ -n "$BIN_PATH" ]; then
+            echo "Location: $BIN_PATH"
+            # Attempt to get version information (customize this per binary if needed)
+            $bin --version 2>&1 || echo "Version info not available"
+        else
+            echo "Binary '$bin' not found in PATH."
+        fi
+        echo "---------------------------------------------------"
+    done
+
+    echo "### Process Snapshot for Critical Services"
+    echo "Processes matching 'ollama' and 'r1':"
+    ps aux | grep -E "(ollama|r1)" | grep -v grep
+    echo "---------------------------------------------------"
+
+    echo "### Data Directory Contents"
+    if [ "$(ls -A $BASE_DIR/data)" ]; then
+        echo "Data directory ($BASE_DIR/data) contents:"
+        ls -l "$BASE_DIR/data"
+    else
+        echo "Data directory ($BASE_DIR/data) is empty."
+    fi
+    echo "---------------------------------------------------"
+
+    echo "### System Resource Information"
+    echo "Uptime:"
+    uptime
+    echo ""
+    echo "Disk usage:"
+    df -h
+    echo "---------------------------------------------------"
+
+} > "$REPORT_FILE" 2>&1
+
+echo "Full system information report saved to $REPORT_FILE"
+
+----- gpt_start.sh -----
+#!/bin/bash
+
+# Dynamically get absolute path to the database
+DB_FILE="$HOME/projects/elroy/db/agendic_agent.db"
+EXPORT_DIR="$HOME/projects/elroy/exports"
+mkdir -p "$EXPORT_DIR"
+
+# Export Database Schema
+echo "🔹 Fetching Database Schema..."
+sqlite3 "$DB_FILE" ".schema" > "$EXPORT_DIR/database_schema.sql"
+echo "✅ Database schema exported to $EXPORT_DIR/database_schema.sql"
+
+# Export KA-1 Data
+echo "🔹 Exporting KA-1 (KATA Cycle Tracking) Data..."
+sqlite3 -header -csv "$DB_FILE" "SELECT * FROM KA1;" > "$EXPORT_DIR/KA1_export.csv"
+echo "✅ KA-1 data exported to $EXPORT_DIR/KA1_export.csv"
+
+# Export KO-1 Data
+echo "🔹 Exporting KO-1 (Knowns & Assumptions) Data..."
+sqlite3 -header -csv "$DB_FILE" "SELECT * FROM KO1;" > "$EXPORT_DIR/KO1_export.csv"
+echo "✅ KO-1 data exported to $EXPORT_DIR/KO1_export.csv"
+
+# Export OB-1 Data
+echo "🔹 Exporting OB-1 (Observations & Anomalies) Data..."
+sqlite3 -header -csv "$DB_FILE" "SELECT * FROM OB1;" > "$EXPORT_DIR/OB1_export.csv"
+echo "✅ OB-1 data exported to $EXPORT_DIR/OB1_export.csv"
+
+# Export System Status Data
+echo "🔹 Exporting System Status Data..."
+sqlite3 -header -csv "$DB_FILE" "SELECT * FROM system_info;" > "$EXPORT_DIR/system_status_export.csv"
+echo "✅ System status data exported to $EXPORT_DIR/system_status_export.csv"
+
+# Log System Data Updates
+echo "🔹 Updating System Database with Export Log..."
+sqlite3 "$DB_FILE" "INSERT INTO system_updates (timestamp, action, details) VALUES (CURRENT_TIMESTAMP, 'EXPORT', 'Exported KA-1, KO-1, OB-1, System Status, and Database Schema.');"
+echo "✅ System database updated with export log."
+
+# Instructions for the external LLM
+echo -e "\n=========================="
+echo -e "📌 INSTRUCTIONS FOR EXTERNAL LLM SESSION 📌"
+echo -e "=========================="
+echo -e "\nYou are starting a new session analyzing the structured KATA methodology."
+echo -e "- KA-1 contains iterative improvements and learnings."
+echo -e "- KO-1 tracks verified knowledge and assumptions under evaluation."
+echo -e "- OB-1 logs observations and anomalies that may need investigation."
+echo -e "- System Status provides the latest system performance and health insights."
+echo -e "- Database Schema details the structure of all tables for reference."
+
+echo -e "\nUse these documents to:"
+echo -e "✅ Provide insights based on trends and historical learnings."
+echo -e "✅ Update assumptions and knowledge as new data emerges."
+echo -e "✅ Suggest next actions based on known issues and past iterations."
+echo -e "✅ Correlate system performance with observations to identify potential issues."
+echo -e "✅ Reference table structures when needed."
+
+echo -e "\nThis data should be treated as structured reference material to enhance AI-driven troubleshooting."
+
+----- llm_update_handler.sh -----
+#!/bin/bash
+
+# Define database path
+db_file="$HOME/projects/elroy/db/agendic_agent.db"
+
+echo "🔄 Awaiting batch update file from external LLM..."
+
+# Read user input for table selection
+echo "Which table do you want to update? (KA1, KO1, OB1)"
+read table
+
+# Prompt for CSV file path
+echo "Enter the path to the CSV file containing updates:"
+read csv_file
+
+# Validate file exists
+if [ ! -f "$csv_file" ]; then
+    echo "❌ Error: File not found!"
+    exit 1
+fi
+
+echo "🔄 Processing updates from $csv_file..."
+
+# Read CSV line by line and apply updates
+while IFS=',' read -r id column new_value
+do
+    update_query="UPDATE $table SET $column = '$new_value' WHERE id = $id;"
+    echo "Executing: $update_query"
+    sqlite3 "$db_file" "$update_query"
+done < "$csv_file"
+
+echo "✅ All updates applied successfully."
+
+# Display updated rows for verification
+echo "🔍 Verifying updates..."
+sqlite3 "$db_file" "SELECT * FROM $table WHERE id IN (SELECT id FROM $table ORDER BY id DESC LIMIT 10);"
+
+echo "🔄 Database update complete!"
+
+----- reorganize_elroy.sh -----
+#!/bin/bash
+# reorganize_elroy.sh
+# This script reorganizes the Elroy project directory to align with our agreed file structure.
+# It creates the following directories (if not already present):
+#   - src, config, containers, docker, logs, docs, and database.
+# It then moves existing items into these folders where appropriate.
+
+BASE_DIR=~/projects/elroy
+
+echo "Reorganizing project structure under $BASE_DIR ..."
+
+# Create missing directories
+mkdir -p "$BASE_DIR/src"
+mkdir -p "$BASE_DIR/config"
+mkdir -p "$BASE_DIR/containers"
+mkdir -p "$BASE_DIR/docker"
+mkdir -p "$BASE_DIR/logs"
+mkdir -p "$BASE_DIR/docs"
+mkdir -p "$BASE_DIR/database"
+
+# If a directory named "db" exists, move its contents to "database" and remove it.
+if [ -d "$BASE_DIR/db" ]; then
+    echo "Moving contents from 'db' to 'database'..."
+    mv "$BASE_DIR/db/"* "$BASE_DIR/database/"
+    rmdir "$BASE_DIR/db"
+fi
+
+# Move any tracking CSV files into the "database" folder.
+if [ -f "$BASE_DIR/ka1_import.csv" ]; then
+    echo "Moving ka1_import.csv into the 'database' folder..."
+    mv "$BASE_DIR/ka1_import.csv" "$BASE_DIR/database/"
+fi
+
+# Move the setup log into the "logs" folder.
+if [ -f "$BASE_DIR/setup_output.log" ]; then
+    echo "Moving setup_output.log into the 'logs' folder..."
+    mv "$BASE_DIR/setup_output.log" "$BASE_DIR/logs/"
+fi
+
+# Move system assessment files/folder into the "docs" folder.
+if [ -d "$BASE_DIR/system_assessment" ]; then
+    echo "Moving system_assessment folder into the 'docs' folder..."
+    mv "$BASE_DIR/system_assessment" "$BASE_DIR/docs/"
+fi
+
+echo "Reorganization complete."
+
+# Optional: display the updated directory structure (requires 'tree' command)
+if command -v tree >/dev/null 2>&1; then
+    tree "$BASE_DIR"
+else
+    echo "Use 'tree ~/projects/elroy' to view the directory structure."
+fi
+
+echo "Your project now follows the agreed file structure."
+
+----- run.sh -----
+#!/bin/bash
+
+# Configuration
+CONTAINER_NAME="deepseek_r1"
+SCRIPT_DIR="/app"
+
+# Fixed model paths
+MODEL_PATH_1="/workspace/models/deepseek-r1-optimized"
+MODEL_PATH_2="/workspace/models/deepseek-r1-distill-qwen-1.5b" 
+MODEL_PATH_3="/workspace/models/deepseek/deepseek-llm-7b-base"
+
+# Function to check if container is running
+check_container() {
+    if [ "$(docker ps -q -f name=$CONTAINER_NAME)" ]; then
+        echo "✓ Container $CONTAINER_NAME is running"
+        return 0
+    else
+        echo "✗ Container $CONTAINER_NAME is not running"
+        return 1
+    fi
+}
+
+# Copy scripts to container
+copy_scripts() {
+    echo "Copying scripts to container..."
+    docker exec $CONTAINER_NAME mkdir -p $SCRIPT_DIR 2>/dev/null
+    docker cp verify_gpu.py $CONTAINER_NAME:$SCRIPT_DIR/
+    docker cp interactive.py $CONTAINER_NAME:$SCRIPT_DIR/
+    echo "✓ Scripts copied"
+}
+
+# Main menu
+echo "DeepSeek R1 Management Script"
+check_container
+
+while true; do
+    echo -e "\n===== DeepSeek R1 Management Script ====="
+    echo "1. Verify GPU with Model 1 (deepseek-r1-optimized)"
+    echo "2. Verify GPU with Model 2 (deepseek-r1-distill-qwen-1.5b)"
+    echo "3. Verify GPU with Model 3 (deepseek-llm-7b-base)"
+    echo "4. Copy scripts to container"
+    echo "5. Exit"
+    echo "======================================="
+    echo -n "Please select an option: "
+    
+    read choice
+    
+    case $choice in
+        1)
+            echo "Running GPU verification with model: $MODEL_PATH_1"
+            docker exec -it $CONTAINER_NAME python3 $SCRIPT_DIR/verify_gpu.py --model_path "$MODEL_PATH_1"
+            ;;
+        2)
+            echo "Running GPU verification with model: $MODEL_PATH_2"
+            docker exec -it $CONTAINER_NAME python3 $SCRIPT_DIR/verify_gpu.py --model_path "$MODEL_PATH_2"
+            ;;
+        3)
+            echo "Running GPU verification with model: $MODEL_PATH_3"
+            docker exec -it $CONTAINER_NAME python3 $SCRIPT_DIR/verify_gpu.py --model_path "$MODEL_PATH_3"
+            ;;
+        4)
+            copy_scripts
+            ;;
+        5)
+            echo "Exiting script. Goodbye!"
+            exit 0
+            ;;
+        *)
+            echo "Invalid option. Please try again."
+            ;;
+    esac
+    
+    echo ""
+    read -p "Press Enter to continue..."
+done
+
+----- setup_deepseek_container.sh -----
+#!/bin/bash
+# setup_deepseek_container.sh
+CONTAINER_NAME="deepseek-persistent"
+IMAGE_NAME="nvcr.io/nvidia/pytorch:24.09-py3-igpu"
+SCRIPT_PATH="/scripts/test_deepseek_memory.py"
+
+# Stop and remove the container if it already exists
+docker stop $CONTAINER_NAME 2>/dev/null
+docker rm $CONTAINER_NAME 2>/dev/null
+
+# Create the container and copy the script inside
+docker run -d --name $CONTAINER_NAME --runtime nvidia --gpus all --ipc=host -v $(pwd)/scripts:/scripts -v /models:/models $IMAGE_NAME sleep infinity
+
+# Copy the script to the container
+docker cp ./test_deepseek_memory.py $CONTAINER_NAME:$SCRIPT_PATH
+
+# Wait for the container to be ready (adjust sleep time if needed)
+sleep 5
+
+# Install the required packages
+docker exec -it $CONTAINER_NAME pip install transformers psutil bitsandbytes
+
+# Execute the memory test script
+docker exec -it $CONTAINER_NAME python $SCRIPT_PATH
+
+----- setup.sh -----
+#!/bin/bash
+
+# Set project directory
+PROJECT_DIR=~/projects/elroy
+VENV_DIR=$PROJECT_DIR/venv
+SCRIPT_DIR=$PROJECT_DIR/scripts
+
+echo "🚀 Setting up agendic agent environment..."
+
+# Create project directory if it doesn't exist
+mkdir -p $PROJECT_DIR/data/ka1
+mkdir -p $PROJECT_DIR/data/ko1
+mkdir -p $PROJECT_DIR/data/ob1
+mkdir -p $PROJECT_DIR/data/qms
+mkdir -p $PROJECT_DIR/data/erp
+mkdir -p $PROJECT_DIR/data/sme
+mkdir -p $PROJECT_DIR/db
+mkdir -p $VENV_DIR
+mkdir -p $SCRIPT_DIR
+
+# Set up virtual environment
+if [ ! -d "$VENV_DIR/bin" ]; then
+    echo "🔧 Creating virtual environment..."
+    python3 -m venv $VENV_DIR
+    echo "✅ Virtual environment created."
+else
+    echo "⚡ Virtual environment already exists."
+fi
+
+# Activate virtual environment
+source $VENV_DIR/bin/activate
+
+# Install dependencies
+echo "📦 Installing dependencies..."
+pip install --upgrade pip
+pip install pandas
+
+echo "✅ Dependencies installed."
+
+# Initialize database
+echo "📂 Initializing database..."
+python3 - <<EOF
+import sqlite3
+DB_FILE = "$PROJECT_DIR/db/agendic_agent.db"
+
+SCHEMA = '''
+CREATE TABLE IF NOT EXISTS ka1 (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    project_id TEXT NOT NULL,
+    iteration INTEGER NOT NULL,
+    concern TEXT NOT NULL,
+    planned_actions TEXT NOT NULL,
+    expected_learnings TEXT NOT NULL,
+    actual_learnings TEXT,
+    actual_actions TEXT,
+    changes_next_iteration TEXT
+);
+
+CREATE TABLE IF NOT EXISTS ko1 (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    project_id TEXT NOT NULL,
+    known_fact TEXT NOT NULL,
+    source TEXT,
+    assumption TEXT,
+    status TEXT CHECK( status IN ('Pending', 'In Review', 'Confirmed', 'Disproven') ) NOT NULL,
+    validation_method TEXT
+);
+
+CREATE TABLE IF NOT EXISTS ob1 (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    project_id TEXT NOT NULL,
+    observation TEXT NOT NULL,
+    investigation_status TEXT CHECK( investigation_status IN ('Unreviewed', 'Investigating', 'Resolved') ) NOT NULL,
+    linked_ka1 INTEGER,
+    FOREIGN KEY (linked_ka1) REFERENCES ka1(id)
+);
+
+CREATE TABLE IF NOT EXISTS qms (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    document_name TEXT NOT NULL,
+    file_path TEXT NOT NULL,
+    indexed_text TEXT
+);
+
+CREATE TABLE IF NOT EXISTS erp (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    file_name TEXT NOT NULL,
+    file_path TEXT NOT NULL,
+    table_name TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS sme (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    topic TEXT NOT NULL,
+    document_name TEXT NOT NULL,
+    file_path TEXT NOT NULL,
+    indexed_text TEXT
+);
+'''
+
+conn = sqlite3.connect(DB_FILE)
+cursor = conn.cursor()
+cursor.executescript(SCHEMA)
+conn.commit()
+conn.close()
+print("✅ Database initialized successfully at", DB_FILE)
+EOF
+
+echo "🚀 Setup complete! Virtual environment, dependencies, and database are ready."
+echo "To activate the virtual environment, run: source $VENV_DIR/bin/activate"
+
+----- sys_info.sh -----
+#!/bin/bash
+# Jetson Orin Nano System Assessment Script with Database Logging
+# This script gathers system information for Phase 0 assessment and logs to a SQLite database
+
+OUTPUT_FILE=~/projects/elroy/system_assessment/system_info_report.txt
+DB_FILE=~/projects/elroy/system_assessment/system_assessment.db
+mkdir -p $(dirname "$OUTPUT_FILE")
+
+# Create or overwrite the output file
+echo "Jetson Orin Nano System Assessment Report" > $OUTPUT_FILE
+echo "=========================================" >> $OUTPUT_FILE
+
+# Initialize SQLite database if not exists
+if [ ! -f "$DB_FILE" ]; then
+    sqlite3 $DB_FILE "CREATE TABLE system_info (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+        os_version TEXT,
+        jetpack_version TEXT,
+        cuda_version TEXT,
+        cudnn_version TEXT,
+        tensorrt_version TEXT,
+        python_version TEXT,
+        cpu_info TEXT,
+        gpu_info TEXT,
+        memory_info TEXT,
+        storage_info TEXT,
+        docker_containers TEXT,
+        pytorch_gpu_test TEXT
+    );"
+fi
+
+# Collect OS Version & JetPack Details
+OS_VERSION=$(cat /etc/nv_tegra_release)
+echo "$OS_VERSION" >> $OUTPUT_FILE
+
+# Collect CUDA, cuDNN, and TensorRT Versions
+CUDA_VERSION=$(nvcc --version 2>/dev/null | grep "release")
+CUDNN_VERSION=$(dpkg -l | grep libcudnn8 | awk '{print $3}')
+TENSORRT_VERSION=$(dpkg -l | grep tensorrt | awk '{print $3}')
+echo "\nCUDA Version: $CUDA_VERSION" >> $OUTPUT_FILE
+echo "cuDNN Version: $CUDNN_VERSION" >> $OUTPUT_FILE
+echo "TensorRT Version: $TENSORRT_VERSION" >> $OUTPUT_FILE
+
+# Collect Python Version
+PYTHON_VERSION=$(python3 --version)
+echo "\nPython Version: $PYTHON_VERSION" >> $OUTPUT_FILE
+
+# Collect System Resources
+CPU_INFO=$(lscpu | grep "Model name")
+GPU_INFO=$(tegrastats --interval 1000 --logfile /tmp/gpu_usage.log & sleep 5; killall tegrastats; cat /tmp/gpu_usage.log)
+MEMORY_INFO=$(free -h)
+STORAGE_INFO=$(df -h)
+echo "\nCPU Info: $CPU_INFO" >> $OUTPUT_FILE
+echo "GPU Info: $GPU_INFO" >> $OUTPUT_FILE
+echo "Memory Info: $MEMORY_INFO" >> $OUTPUT_FILE
+echo "Storage Info: $STORAGE_INFO" >> $OUTPUT_FILE
+
+# Collect Docker Containers
+DOCKER_CONTAINERS=$(sudo docker ps -a --format "{{.ID}} {{.Image}} {{.Status}}")
+echo "\nDocker Containers: $DOCKER_CONTAINERS" >> $OUTPUT_FILE
+
+# Check PyTorch GPU in Container
+PYTORCH_CONTAINER="nvcr.io/nvidia/pytorch:24.09-py3-igpu"
+PYTORCH_GPU_TEST="Not Run"
+if sudo docker images --format '{{.Repository}}:{{.Tag}}' | grep -q "$PYTORCH_CONTAINER"; then
+    PYTORCH_GPU_TEST=$(sudo docker run --rm --runtime=nvidia --gpus all $PYTORCH_CONTAINER python3 -c "import torch; print(torch.cuda.is_available())")
+    echo "\nPyTorch GPU Test: $PYTORCH_GPU_TEST" >> $OUTPUT_FILE
+fi
+
+# Insert Data into SQLite Database
+sqlite3 $DB_FILE "INSERT INTO system_info (
+    os_version, jetpack_version, cuda_version, cudnn_version, tensorrt_version, 
+    python_version, cpu_info, gpu_info, memory_info, storage_info, docker_containers, pytorch_gpu_test
+) VALUES (
+    '$OS_VERSION', 'R36', '$CUDA_VERSION', '$CUDNN_VERSION', '$TENSORRT_VERSION',
+    '$PYTHON_VERSION', '$CPU_INFO', '$GPU_INFO', '$MEMORY_INFO', '$STORAGE_INFO',
+    '$DOCKER_CONTAINERS', '$PYTORCH_GPU_TEST'
+);"
+
+echo "\nSystem Assessment Complete. Results stored in: $OUTPUT_FILE and logged to database: $DB_FILE"
+
+----- system_test.sh -----
+#!/bin/bash
+# system_test.sh
+# This script performs a full system test on the Elroy project.
+# It checks for critical services (R1 and Ollama), validates the virtual environment,
+# and gathers system information into a report.
+
+# Define base directories
+BASE_DIR=~/projects/elroy
+LOG_DIR="$BASE_DIR/logs"
+REPORT_FILE="$LOG_DIR/system_test_report.txt"
+
+# Create logs directory if it doesn't exist
+mkdir -p "$LOG_DIR"
+
+# Start report
+echo "========== Elroy Full System Test Report ==========" > "$REPORT_FILE"
+echo "Date: $(date)" >> "$REPORT_FILE"
+echo "---------------------------------------------------" >> "$REPORT_FILE"
+
+# Function to check a process is running by name
+check_process() {
+    local proc_name="$1"
+    echo "Checking for process: $proc_name ..." | tee -a "$REPORT_FILE"
+    if pgrep -f "$proc_name" > /dev/null; then
+        echo "✅ Process '$proc_name' is running." | tee -a "$REPORT_FILE"
+    else
+        echo "❌ Process '$proc_name' is NOT running." | tee -a "$REPORT_FILE"
+    fi
+    echo "---------------------------------------------------" >> "$REPORT_FILE"
+}
+
+# Check R1 service
+check_process "r1"
+
+# Check Ollama service
+check_process "ollama"
+
+# Check Python Virtual Environment (venv)
+echo "Checking for Python virtual environment..." | tee -a "$REPORT_FILE"
+if [ -d "$BASE_DIR/venv" ] && [ -f "$BASE_DIR/venv/bin/activate" ]; then
+    echo "✅ Virtual environment exists at $BASE_DIR/venv" | tee -a "$REPORT_FILE"
+    # Activate venv and check Python version
+    source "$BASE_DIR/venv/bin/activate"
+    PY_VER=$(python --version 2>&1)
+    echo "Python version in venv: $PY_VER" | tee -a "$REPORT_FILE"
+    deactivate
+else
+    echo "❌ Virtual environment not found at $BASE_DIR/venv" | tee -a "$REPORT_FILE"
+fi
+echo "---------------------------------------------------" >> "$REPORT_FILE"
+
+# Check Docker containers (if using Docker)
+echo "Checking for running Docker containers..." | tee -a "$REPORT_FILE"
+docker ps --format "table {{.Names}}\t{{.Status}}" >> "$REPORT_FILE"
+echo "---------------------------------------------------" >> "$REPORT_FILE"
+
+# Optionally run a quick data test (e.g., check that data directory is not empty)
+echo "Verifying data directory contents..." | tee -a "$REPORT_FILE"
+if [ "$(ls -A $BASE_DIR/data)" ]; then
+    echo "✅ Data directory ($BASE_DIR/data) is not empty." | tee -a "$REPORT_FILE"
+else
+    echo "❌ Data directory ($BASE_DIR/data) is empty." | tee -a "$REPORT_FILE"
+fi
+echo "---------------------------------------------------" >> "$REPORT_FILE"
+
+# Optionally run a sample script from src/ (if available)
+SAMPLE_SCRIPT="$BASE_DIR/src/sample_test.py"
+if [ -f "$SAMPLE_SCRIPT" ]; then
+    echo "Running sample test script: $SAMPLE_SCRIPT ..." | tee -a "$REPORT_FILE"
+    source "$BASE_DIR/venv/bin/activate"
+    python "$SAMPLE_SCRIPT" >> "$REPORT_FILE" 2>&1
+    EXIT_CODE=$?
+    deactivate
+    if [ $EXIT_CODE -eq 0 ]; then
+        echo "✅ Sample script ran successfully." | tee -a "$REPORT_FILE"
+    else
+        echo "❌ Sample script encountered errors (exit code: $EXIT_CODE)." | tee -a "$REPORT_FILE"
+    fi
+else
+    echo "No sample test script found in $BASE_DIR/src/." | tee -a "$REPORT_FILE"
+fi
+echo "---------------------------------------------------" >> "$REPORT_FILE"
+
+# Add system resource info (uptime, disk usage)
+echo "Collecting system resource information..." | tee -a "$REPORT_FILE"
+echo "Uptime:" | tee -a "$REPORT_FILE"
+uptime >> "$REPORT_FILE"
+echo "Disk usage:" | tee -a "$REPORT_FILE"
+df -h >> "$REPORT_FILE"
+echo "---------------------------------------------------" >> "$REPORT_FILE"
+
+echo "System test completed. Report saved to $REPORT_FILE"
+

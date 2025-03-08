@@ -1,0 +1,9 @@
+Models Directory Structure Overview
+Base Directory: /home/richard/projects/elroy/models
+----------------------------------------
+
+/home/richard/projects/elroy/models: 0 files
+/home/richard/projects/elroy/models/deepseek: 0 files
+
+Total directories: 2
+Total files: 0

@@ -1,0 +1,15 @@
+id,project_id,known_fact,source,assumption,status,validation_method
+1,"known_fact,source,assumption,status,validation_method","Develop a scalable, modular, and efficient multi-agent AI assistant system for Jetson Orin Nano, utilizing NVIDIA Jetson Containers for optimized performance.","Project Goal",,Confirmed,
+2,"known_fact,source,assumption,status,validation_method","Ensure all virtual environments and dependencies are correctly installed and isolated, with NVIDIA Jetson Containers providing optimized AI workload execution.","Current Goal",,Confirmed,
+3,"known_fact,source,assumption,status,validation_method","DeepSeek R1 successfully loaded and generated text. Pending direct interaction and optimization.","Current Stage",,Confirmed,
+4,"known_fact,source,assumption,status,validation_method","CUDA is not available system-wide (nvcc: command not found), but NVIDIA Jetson Containers can run CUDA inside Docker.","Current Issues Being Addressed",,Confirmed,
+5,"known_fact,source,assumption,status,validation_method","PyTorch was installed as cpu-only (torch-2.6.0+cpu), meaning it does not support GPU acceleration.","Current Issues Being Addressed",,Confirmed,
+6,"known_fact,source,assumption,status,validation_method","Jetson Containers need to be properly configured for CUDA acceleration.","Current Issues Being Addressed",,Confirmed,
+7,"known_fact,source,assumption,status,validation_method","DeepSeek R1 needs to be retrieved from Hugging Face and tested within a containerized environment.","Current Issues Being Addressed",,Confirmed,
+8,"known_fact,source,assumption,status,validation_method","Existing NVIDIA Jetson PyTorch container r35.2.1-pth2.0-py3 (2 years old) may need updating for compatibility.","Current Issues Being Addressed",,Confirmed,
+9,"known_fact,source,assumption,status,validation_method","nvidia-smi does not work on Jetson Orin devices and should not be used for GPU diagnostics.","Current Issues Being Addressed",,Confirmed,
+10,"known_fact,source,assumption,status,validation_method","DeepSeek R1 loads using safetensors, not .bin files.","Current Issues Being Addressed",,Confirmed,
+11,"known_fact,source,assumption,status,validation_method","Inference executed inside deepseek_r1 container but has not yet been interacted with manually.","Current Issues Being Addressed",,Confirmed,
+12,"known_fact,source,assumption,status,validation_method","DeepSeek R1 will improve response time when run on GPU.","Active Assumptions","DeepSeek R1 is expected to leverage GPU for faster inference",Pending,"Model currently running, but GPU acceleration not yet confirmed."
+13,"known_fact,source,assumption,status,validation_method","CUDA should be available within the Jetson container runtime.","Active Assumptions","Jetson containers should have native CUDA support",Confirmed,"torch.cuda.is_available() returns True inside the container."
+14,"known_fact,source,assumption,status,validation_method","Using safetensors instead of .bin will not impact model performance.","Active Assumptions","Safetensors are expected to load and run models equivalently to .bin files",Pending,"Model loads but performance has not been tested."

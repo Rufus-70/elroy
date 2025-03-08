@@ -1,0 +1,294 @@
+Elroy Audit Script - Container Runtime and Orchestration Check
+Date: Fri Mar  7 06:30:09 PM PST 2025
+-------------------------------------
+Step 3.1: Reviewing Existing Docker Configurations
+1. Docker Version:
+Client:
+ Version:           26.1.3
+ API version:       1.45
+ Go version:        go1.22.2
+ Git commit:        26.1.3-0ubuntu1~22.04.1
+ Built:             Mon Oct 14 21:24:40 2024
+ OS/Arch:           linux/arm64
+ Context:           default
+
+Server:
+ Engine:
+  Version:          26.1.3
+  API version:      1.45 (minimum version 1.24)
+  Go version:       go1.22.2
+  Git commit:       26.1.3-0ubuntu1~22.04.1
+  Built:            Mon Oct 14 21:24:40 2024
+  OS/Arch:          linux/arm64
+  Experimental:     false
+ containerd:
+  Version:          1.7.24
+  GitCommit:        
+ nvidia:
+  Version:          1.1.12-0ubuntu2~22.04.1
+  GitCommit:        807c87e057e13fbd559369b8fd722cc7a6f4e5bb
+ docker-init:
+  Version:          0.19.0
+  GitCommit:        
+-------------------------------------
+2. Docker Info:
+Client:
+ Version:    26.1.3
+ Context:    default
+ Debug Mode: false
+ Plugins:
+  buildx: Docker Buildx (Docker Inc.)
+    Version:  v0.21.1
+    Path:     /usr/libexec/docker/cli-plugins/docker-buildx
+  compose: Docker Compose (Docker Inc.)
+    Version:  v2.33.1
+    Path:     /usr/libexec/docker/cli-plugins/docker-compose
+
+Server:
+ Containers: 12
+  Running: 2
+  Paused: 0
+  Stopped: 10
+ Images: 9
+ Server Version: 26.1.3
+ Storage Driver: overlay2
+  Backing Filesystem: extfs
+  Supports d_type: true
+  Using metacopy: false
+  Native Overlay Diff: true
+  userxattr: false
+ Logging Driver: json-file
+ Cgroup Driver: systemd
+ Cgroup Version: 2
+ Plugins:
+  Volume: local
+  Network: bridge host ipvlan macvlan null overlay
+  Log: awslogs fluentd gcplogs gelf journald json-file local splunk syslog
+ Swarm: inactive
+ Runtimes: io.containerd.runc.v2 nvidia runc
+ Default Runtime: nvidia
+ Init Binary: docker-init
+ containerd version: 
+ runc version: 807c87e057e13fbd559369b8fd722cc7a6f4e5bb
+ init version: 
+ Security Options:
+  seccomp
+   Profile: builtin
+  cgroupns
+ Kernel Version: 5.15.136-tegra
+ Operating System: Ubuntu 22.04.5 LTS
+ OSType: linux
+ Architecture: aarch64
+ CPUs: 6
+ Total Memory: 7.41GiB
+ Name: elroy
+ ID: a3365eb4-e252-4094-86b5-ea40bf5fbba3
+ Docker Root Dir: /var/lib/docker
+ Debug Mode: false
+ Experimental: false
+ Insecure Registries:
+  127.0.0.0/8
+ Live Restore Enabled: false
+
+-------------------------------------
+3. Docker Daemon Configuration (/etc/docker/daemon.json):
+{
+    "default-runtime": "nvidia",
+    "runtimes": {
+        "nvidia": {
+            "args": [],
+            "path": "nvidia-container-runtime"
+        }
+    }
+}-------------------------------------
+4. Docker Logs (last 60 minutes):
+Mar 07 18:17:48 elroy systemd[1]: Stopping Docker Application Container Engine...
+Mar 07 18:17:48 elroy dockerd[2007]: time="2025-03-07T18:17:48.988898279-08:00" level=info msg="Processing signal 'terminated'"
+Mar 07 18:17:59 elroy dockerd[2007]: time="2025-03-07T18:17:59.032078137-08:00" level=info msg="Container failed to exit within 10s of signal 15 - using the force" container=f6144c7f322ba9387e6c5ff0e16e110d65f63ba87fb93aa341ebbc224a52ed3e
+Mar 07 18:17:59 elroy dockerd[2007]: time="2025-03-07T18:17:59.422553063-08:00" level=info msg="ignoring event" container=f6144c7f322ba9387e6c5ff0e16e110d65f63ba87fb93aa341ebbc224a52ed3e module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Mar 07 18:17:59 elroy dockerd[2007]: time="2025-03-07T18:17:59.473076166-08:00" level=error msg="attach failed with error: error attaching stderr stream: write unix /run/docker.sock->@: write: broken pipe"
+Mar 07 18:18:00 elroy dockerd[2007]: time="2025-03-07T18:18:00.178573612-08:00" level=info msg="stopping event stream following graceful shutdown" error="<nil>" module=libcontainerd namespace=moby
+Mar 07 18:18:00 elroy dockerd[2007]: time="2025-03-07T18:18:00.282743207-08:00" level=info msg="Daemon shutdown complete"
+Mar 07 18:18:00 elroy dockerd[2007]: time="2025-03-07T18:18:00.282970413-08:00" level=info msg="stopping event stream following graceful shutdown" error="context canceled" module=libcontainerd namespace=plugins.moby
+Mar 07 18:18:00 elroy systemd[1]: docker.service: Deactivated successfully.
+Mar 07 18:18:00 elroy systemd[1]: Stopped Docker Application Container Engine.
+Mar 07 18:18:00 elroy systemd[1]: docker.service: Consumed 52.589s CPU time.
+Mar 07 18:18:00 elroy systemd[1]: Starting Docker Application Container Engine...
+Mar 07 18:18:01 elroy dockerd[282367]: time="2025-03-07T18:18:01.049224733-08:00" level=info msg="Starting up"
+Mar 07 18:18:01 elroy dockerd[282367]: time="2025-03-07T18:18:01.086101327-08:00" level=info msg="detected 127.0.0.53 nameserver, assuming systemd-resolved, so using resolv.conf: /run/systemd/resolve/resolv.conf"
+Mar 07 18:18:01 elroy dockerd[282367]: time="2025-03-07T18:18:01.322203116-08:00" level=info msg="[graphdriver] using prior storage driver: overlay2"
+Mar 07 18:18:02 elroy dockerd[282367]: time="2025-03-07T18:18:02.352832305-08:00" level=info msg="Loading containers: start."
+Mar 07 18:18:02 elroy dockerd[282367]: time="2025-03-07T18:18:02.734893546-08:00" level=warning msg="Could not load necessary modules for IPSEC rules: protocol not supported"
+Mar 07 18:18:02 elroy dockerd[282367]: time="2025-03-07T18:18:02.850378190-08:00" level=info msg="Default bridge (docker0) is assigned with an IP address 192.168.1.0/24. Daemon option --bip can be used to set a preferred IP address"
+Mar 07 18:18:03 elroy dockerd[282367]: time="2025-03-07T18:18:03.974923778-08:00" level=info msg="Loading containers: done."
+Mar 07 18:18:04 elroy dockerd[282367]: time="2025-03-07T18:18:04.134829428-08:00" level=info msg="Docker daemon" commit="26.1.3-0ubuntu1~22.04.1" containerd-snapshotter=false storage-driver=overlay2 version=26.1.3
+Mar 07 18:18:04 elroy dockerd[282367]: time="2025-03-07T18:18:04.135046491-08:00" level=info msg="Daemon has completed initialization"
+Mar 07 18:18:06 elroy dockerd[282367]: time="2025-03-07T18:18:06.243189851-08:00" level=info msg="API listen on /run/docker.sock"
+Mar 07 18:18:06 elroy systemd[1]: Started Docker Application Container Engine.
+Mar 07 18:19:54 elroy dockerd[282367]: time="2025-03-07T18:19:54.985230150-08:00" level=info msg="ignoring event" container=a735b67fd67eaf43544a6eca41769dc9fc6898500a8090863b42580e42fc4e00 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Mar 07 18:20:33 elroy dockerd[282367]: time="2025-03-07T18:20:33.480277470-08:00" level=info msg="ignoring event" container=a735b67fd67eaf43544a6eca41769dc9fc6898500a8090863b42580e42fc4e00 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Mar 07 18:20:58 elroy dockerd[282367]: time="2025-03-07T18:20:58.847604367-08:00" level=info msg="ignoring event" container=a735b67fd67eaf43544a6eca41769dc9fc6898500a8090863b42580e42fc4e00 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Mar 07 18:21:22 elroy dockerd[282367]: time="2025-03-07T18:21:22.075632549-08:00" level=info msg="ignoring event" container=a735b67fd67eaf43544a6eca41769dc9fc6898500a8090863b42580e42fc4e00 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Mar 07 18:21:44 elroy dockerd[282367]: time="2025-03-07T18:21:44.824992015-08:00" level=info msg="ignoring event" container=a735b67fd67eaf43544a6eca41769dc9fc6898500a8090863b42580e42fc4e00 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Mar 07 18:22:12 elroy dockerd[282367]: time="2025-03-07T18:22:12.380832584-08:00" level=info msg="ignoring event" container=a735b67fd67eaf43544a6eca41769dc9fc6898500a8090863b42580e42fc4e00 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Mar 07 18:22:34 elroy dockerd[282367]: time="2025-03-07T18:22:34.852392351-08:00" level=info msg="ignoring event" container=a735b67fd67eaf43544a6eca41769dc9fc6898500a8090863b42580e42fc4e00 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Mar 07 18:22:56 elroy dockerd[282367]: time="2025-03-07T18:22:56.922376965-08:00" level=info msg="ignoring event" container=a735b67fd67eaf43544a6eca41769dc9fc6898500a8090863b42580e42fc4e00 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Mar 07 18:23:21 elroy dockerd[282367]: time="2025-03-07T18:23:21.010127480-08:00" level=info msg="ignoring event" container=a735b67fd67eaf43544a6eca41769dc9fc6898500a8090863b42580e42fc4e00 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Mar 07 18:23:43 elroy dockerd[282367]: time="2025-03-07T18:23:43.771515836-08:00" level=info msg="ignoring event" container=a735b67fd67eaf43544a6eca41769dc9fc6898500a8090863b42580e42fc4e00 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Mar 07 18:24:05 elroy dockerd[282367]: time="2025-03-07T18:24:05.755228814-08:00" level=info msg="ignoring event" container=a735b67fd67eaf43544a6eca41769dc9fc6898500a8090863b42580e42fc4e00 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Mar 07 18:24:28 elroy dockerd[282367]: time="2025-03-07T18:24:28.137238216-08:00" level=info msg="ignoring event" container=a735b67fd67eaf43544a6eca41769dc9fc6898500a8090863b42580e42fc4e00 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Mar 07 18:24:50 elroy dockerd[282367]: time="2025-03-07T18:24:50.912244367-08:00" level=info msg="ignoring event" container=a735b67fd67eaf43544a6eca41769dc9fc6898500a8090863b42580e42fc4e00 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Mar 07 18:25:13 elroy dockerd[282367]: time="2025-03-07T18:25:13.033644447-08:00" level=info msg="ignoring event" container=a735b67fd67eaf43544a6eca41769dc9fc6898500a8090863b42580e42fc4e00 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Mar 07 18:25:35 elroy dockerd[282367]: time="2025-03-07T18:25:35.235741666-08:00" level=info msg="ignoring event" container=a735b67fd67eaf43544a6eca41769dc9fc6898500a8090863b42580e42fc4e00 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Mar 07 18:25:57 elroy dockerd[282367]: time="2025-03-07T18:25:57.244173395-08:00" level=info msg="ignoring event" container=a735b67fd67eaf43544a6eca41769dc9fc6898500a8090863b42580e42fc4e00 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Mar 07 18:26:19 elroy dockerd[282367]: time="2025-03-07T18:26:19.664247117-08:00" level=info msg="ignoring event" container=a735b67fd67eaf43544a6eca41769dc9fc6898500a8090863b42580e42fc4e00 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Mar 07 18:26:41 elroy dockerd[282367]: time="2025-03-07T18:26:41.603107659-08:00" level=info msg="ignoring event" container=a735b67fd67eaf43544a6eca41769dc9fc6898500a8090863b42580e42fc4e00 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Mar 07 18:27:03 elroy dockerd[282367]: time="2025-03-07T18:27:03.546030075-08:00" level=info msg="ignoring event" container=a735b67fd67eaf43544a6eca41769dc9fc6898500a8090863b42580e42fc4e00 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Mar 07 18:27:26 elroy dockerd[282367]: time="2025-03-07T18:27:26.896041995-08:00" level=info msg="ignoring event" container=a735b67fd67eaf43544a6eca41769dc9fc6898500a8090863b42580e42fc4e00 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Mar 07 18:27:48 elroy dockerd[282367]: time="2025-03-07T18:27:48.875809955-08:00" level=info msg="ignoring event" container=a735b67fd67eaf43544a6eca41769dc9fc6898500a8090863b42580e42fc4e00 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Mar 07 18:28:11 elroy dockerd[282367]: time="2025-03-07T18:28:11.656501762-08:00" level=info msg="ignoring event" container=a735b67fd67eaf43544a6eca41769dc9fc6898500a8090863b42580e42fc4e00 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Mar 07 18:28:37 elroy dockerd[282367]: time="2025-03-07T18:28:37.446375499-08:00" level=info msg="ignoring event" container=a735b67fd67eaf43544a6eca41769dc9fc6898500a8090863b42580e42fc4e00 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Mar 07 18:29:01 elroy dockerd[282367]: time="2025-03-07T18:29:01.162505476-08:00" level=info msg="ignoring event" container=a735b67fd67eaf43544a6eca41769dc9fc6898500a8090863b42580e42fc4e00 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Mar 07 18:29:23 elroy dockerd[282367]: time="2025-03-07T18:29:23.703512858-08:00" level=info msg="ignoring event" container=a735b67fd67eaf43544a6eca41769dc9fc6898500a8090863b42580e42fc4e00 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Mar 07 18:29:45 elroy dockerd[282367]: time="2025-03-07T18:29:45.555723356-08:00" level=info msg="ignoring event" container=a735b67fd67eaf43544a6eca41769dc9fc6898500a8090863b42580e42fc4e00 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Mar 07 18:30:07 elroy dockerd[282367]: time="2025-03-07T18:30:07.332944292-08:00" level=info msg="ignoring event" container=a735b67fd67eaf43544a6eca41769dc9fc6898500a8090863b42580e42fc4e00 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+-------------------------------------
+Step 3.2: Optimizing Docker Engine Settings
+Backing up current /etc/docker/daemon.json to /etc/docker/daemon.json.bak
+Backup complete.
+Restarting Docker service...
+Docker service status:
+● docker.service - Docker Application Container Engine
+     Loaded: loaded (/lib/systemd/system/docker.service; enabled; vendor preset: enabled)
+     Active: active (running) since Fri 2025-03-07 18:30:26 PST; 28ms ago
+TriggeredBy: ● docker.socket
+       Docs: https://docs.docker.com
+   Main PID: 288159 (dockerd)
+      Tasks: 36
+     Memory: 61.6M
+        CPU: 883ms
+     CGroup: /system.slice/docker.service
+             ├─288159 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+             ├─288348 /usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 3456 -container-ip 192.168.1.2 -container-port 8080
+             └─288355 /usr/bin/docker-proxy -proto tcp -host-ip :: -host-port 3456 -container-ip 192.168.1.2 -container-port 8080
+
+Mar 07 18:30:23 elroy dockerd[288159]: time="2025-03-07T18:30:23.433606202-08:00" level=info msg="detected 127.0.0.53 nameserver, assuming systemd-resolved, so using resolv.conf: /run/systemd/resolve/resolv.conf"
+Mar 07 18:30:23 elroy dockerd[288159]: time="2025-03-07T18:30:23.609539210-08:00" level=info msg="[graphdriver] using prior storage driver: overlay2"
+Mar 07 18:30:24 elroy dockerd[288159]: time="2025-03-07T18:30:24.263188146-08:00" level=info msg="Loading containers: start."
+Mar 07 18:30:24 elroy dockerd[288159]: time="2025-03-07T18:30:24.828207391-08:00" level=warning msg="Could not load necessary modules for IPSEC rules: protocol not supported"
+Mar 07 18:30:24 elroy dockerd[288159]: time="2025-03-07T18:30:24.957529182-08:00" level=info msg="Default bridge (docker0) is assigned with an IP address 192.168.1.0/24. Daemon option --bip can be used to set a preferred IP address"
+Mar 07 18:30:25 elroy dockerd[288159]: time="2025-03-07T18:30:25.853356259-08:00" level=info msg="Loading containers: done."
+Mar 07 18:30:26 elroy dockerd[288159]: time="2025-03-07T18:30:26.014991217-08:00" level=info msg="Docker daemon" commit="26.1.3-0ubuntu1~22.04.1" containerd-snapshotter=false storage-driver=overlay2 version=26.1.3
+Mar 07 18:30:26 elroy dockerd[288159]: time="2025-03-07T18:30:26.015992110-08:00" level=info msg="Daemon has completed initialization"
+Mar 07 18:30:26 elroy dockerd[288159]: time="2025-03-07T18:30:26.970948722-08:00" level=info msg="API listen on /run/docker.sock"
+Mar 07 18:30:26 elroy systemd[1]: Started Docker Application Container Engine.
+-------------------------------------
+Step 3.3: Verifying Container Storage Drivers
+Current Storage Driver:
+ Storage Driver: overlay2
+Docker system disk usage:
+TYPE            TOTAL     ACTIVE    SIZE      RECLAIMABLE
+Images          9         6         50.1GB    29.26GB (58%)
+Containers      12        2         661.7MB   619.8MB (93%)
+Local Volumes   2         1         1.081GB   468B (0%)
+Build Cache     57        0         3.53kB    3.53kB
+-------------------------------------
+Step 3.4: Setting Up Orchestration Tools (Docker Compose Example)
+Creating a sample docker-compose.yml file...
+Sample docker-compose.yml created at docker-compose.sample.yml
+Starting Docker Compose services...
+time="2025-03-07T18:30:29-08:00" level=warning msg="/home/richard/projects/elroy/scripts/docker-compose.sample.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+ web Pulling 
+ d51c377d94da Already exists 
+ 492c7b58b293 Pulling fs layer 
+ 587f328750b8 Pulling fs layer 
+ 60b452932acd Pulling fs layer 
+ c60ea76daae0 Pulling fs layer 
+ fb23ee5f039b Pulling fs layer 
+ 0b59f5cbcfb9 Pulling fs layer 
+ c60ea76daae0 Waiting 
+ fb23ee5f039b Waiting 
+ 0b59f5cbcfb9 Waiting 
+ 60b452932acd Downloading     689B/957B
+ 60b452932acd Download complete 
+ 587f328750b8 Downloading     629B/629B
+ 587f328750b8 Verifying Checksum 
+ 587f328750b8 Download complete 
+ 492c7b58b293 Downloading  408.8kB/40.56MB
+ 492c7b58b293 Downloading   2.48MB/40.56MB
+ 492c7b58b293 Downloading  5.356MB/40.56MB
+ 492c7b58b293 Downloading   7.83MB/40.56MB
+ c60ea76daae0 Downloading     405B/405B
+ c60ea76daae0 Verifying Checksum 
+ c60ea76daae0 Download complete 
+ fb23ee5f039b Downloading     700B/1.21kB
+ fb23ee5f039b Downloading   1.21kB/1.21kB
+ fb23ee5f039b Download complete 
+ 492c7b58b293 Downloading  10.32MB/40.56MB
+ 492c7b58b293 Downloading  12.77MB/40.56MB
+ 492c7b58b293 Downloading  15.25MB/40.56MB
+ 492c7b58b293 Downloading  17.73MB/40.56MB
+ 0b59f5cbcfb9 Downloading     688B/1.399kB
+ 0b59f5cbcfb9 Downloading  1.399kB/1.399kB
+ 0b59f5cbcfb9 Verifying Checksum 
+ 0b59f5cbcfb9 Download complete 
+ 492c7b58b293 Downloading  19.81MB/40.56MB
+ 492c7b58b293 Downloading  22.69MB/40.56MB
+ 492c7b58b293 Downloading  25.17MB/40.56MB
+ 492c7b58b293 Downloading  27.65MB/40.56MB
+ 492c7b58b293 Downloading  30.12MB/40.56MB
+ 492c7b58b293 Downloading  32.19MB/40.56MB
+ 492c7b58b293 Downloading  34.65MB/40.56MB
+ 492c7b58b293 Downloading  37.11MB/40.56MB
+ 492c7b58b293 Downloading  39.61MB/40.56MB
+ 492c7b58b293 Verifying Checksum 
+ 492c7b58b293 Download complete 
+ 492c7b58b293 Extracting    426kB/40.56MB
+ 492c7b58b293 Extracting  2.982MB/40.56MB
+ 492c7b58b293 Extracting  5.112MB/40.56MB
+ 492c7b58b293 Extracting  8.946MB/40.56MB
+ 492c7b58b293 Extracting  11.08MB/40.56MB
+ 492c7b58b293 Extracting  15.34MB/40.56MB
+ 492c7b58b293 Extracting  18.32MB/40.56MB
+ 492c7b58b293 Extracting  21.73MB/40.56MB
+ 492c7b58b293 Extracting  23.86MB/40.56MB
+ 492c7b58b293 Extracting  25.99MB/40.56MB
+ 492c7b58b293 Extracting  29.39MB/40.56MB
+ 492c7b58b293 Extracting   34.5MB/40.56MB
+ 492c7b58b293 Extracting  37.91MB/40.56MB
+ 492c7b58b293 Extracting  38.34MB/40.56MB
+ 492c7b58b293 Extracting  40.47MB/40.56MB
+ 492c7b58b293 Extracting  40.56MB/40.56MB
+ 492c7b58b293 Pull complete 
+ 587f328750b8 Extracting     629B/629B
+ 587f328750b8 Extracting     629B/629B
+ 587f328750b8 Pull complete 
+ 60b452932acd Extracting     957B/957B
+ 60b452932acd Extracting     957B/957B
+ 60b452932acd Pull complete 
+ c60ea76daae0 Extracting     405B/405B
+ c60ea76daae0 Extracting     405B/405B
+ c60ea76daae0 Pull complete 
+ fb23ee5f039b Extracting   1.21kB/1.21kB
+ fb23ee5f039b Extracting   1.21kB/1.21kB
+ fb23ee5f039b Pull complete 
+ 0b59f5cbcfb9 Extracting  1.399kB/1.399kB
+ 0b59f5cbcfb9 Extracting  1.399kB/1.399kB
+ 0b59f5cbcfb9 Pull complete 
+ web Pulled 
+ Network scripts_webnet  Creating
+ Network scripts_webnet  Created
+ Container scripts-web-1  Creating
+ Container scripts-web-1  Created
+ Container scripts-app-1  Creating
+ Container scripts-app-1  Created
+ Container scripts-web-1  Starting
+ Container scripts-web-1  Started
+ Container scripts-app-1  Starting
+ Container scripts-app-1  Started
+Docker Compose service status:
+time="2025-03-07T18:30:51-08:00" level=warning msg="/home/richard/projects/elroy/scripts/docker-compose.sample.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+NAME            IMAGE          COMMAND                  SERVICE   CREATED          STATUS                  PORTS
+scripts-app-1   hello-world    "/hello"                 app       3 seconds ago    Up Less than a second   
+scripts-web-1   nginx:latest   "/docker-entrypoint.…"   web       14 seconds ago   Up 1 second             0.0.0.0:80->80/tcp, [::]:80->80/tcp
+Elroy Audit Script Completed.

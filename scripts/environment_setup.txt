@@ -1,0 +1,243 @@
+==== Environment Setup Audit ====
+Timestamp: Fri Mar  7 04:35:29 PM PST 2025
+
+=== Host & OS Information ===
+Hostname: elroy
+OS Information:
+Linux elroy 5.15.136-tegra #1 SMP PREEMPT Mon May 6 09:56:39 PDT 2024 aarch64 aarch64 aarch64 GNU/Linux
+
+=== CPU Information ===
+Architecture:                       aarch64
+CPU op-mode(s):                     32-bit, 64-bit
+Byte Order:                         Little Endian
+CPU(s):                             6
+On-line CPU(s) list:                0-5
+Vendor ID:                          ARM
+Model name:                         Cortex-A78AE
+Model:                              1
+Thread(s) per core:                 1
+Core(s) per cluster:                3
+Socket(s):                          -
+Cluster(s):                         2
+Stepping:                           r0p1
+CPU max MHz:                        1510.4000
+CPU min MHz:                        115.2000
+BogoMIPS:                           62.50
+Flags:                              fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp uscat ilrcpc flagm paca pacg
+L1d cache:                          384 KiB (6 instances)
+L1i cache:                          384 KiB (6 instances)
+L2 cache:                           1.5 MiB (6 instances)
+L3 cache:                           4 MiB (2 instances)
+NUMA node(s):                       1
+NUMA node0 CPU(s):                  0-5
+Vulnerability Gather data sampling: Not affected
+Vulnerability Itlb multihit:        Not affected
+Vulnerability L1tf:                 Not affected
+Vulnerability Mds:                  Not affected
+Vulnerability Meltdown:             Not affected
+Vulnerability Mmio stale data:      Not affected
+Vulnerability Retbleed:             Not affected
+Vulnerability Spec rstack overflow: Not affected
+Vulnerability Spec store bypass:    Mitigation; Speculative Store Bypass disabled via prctl
+Vulnerability Spectre v1:           Mitigation; __user pointer sanitization
+Vulnerability Spectre v2:           Mitigation; CSV2, BHB
+Vulnerability Srbds:                Not affected
+Vulnerability Tsx async abort:      Not affected
+
+=== Memory Information ===
+               total        used        free      shared  buff/cache   available
+Mem:           7.4Gi       4.8Gi       432Mi       237Mi       2.2Gi       2.2Gi
+Swap:           19Gi        92Mi        19Gi
+
+=== Disk Information ===
+NAME         MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+loop0          7:0    0     4K  1 loop /snap/bare/5
+loop1          7:1    0 175.3M  1 loop /snap/chromium/3046
+loop2          7:2    0 175.2M  1 loop /snap/chromium/3048
+loop3          7:3    0 139.7M  1 loop /snap/code-server/67
+loop4          7:4    0  68.8M  1 loop /snap/core22/1752
+loop5          7:5    0  61.3M  1 loop /snap/core24/741
+loop6          7:6    0  64.7M  1 loop /snap/cups/1069
+loop7          7:7    0 235.3M  1 loop /snap/firefox/5780
+loop8          7:8    0 493.5M  1 loop /snap/gnome-42-2204/201
+loop9          7:9    0  91.7M  1 loop /snap/gtk-common-themes/1535
+loop10         7:10   0  38.7M  1 loop /snap/snapd/23546
+loop11         7:11   0    16M  1 loop 
+loop12         7:12   0 235.5M  1 loop /snap/firefox/5840
+loop13         7:13   0  38.7M  1 loop /snap/snapd/23772
+loop14         7:14   0  64.7M  1 loop /snap/cups/1071
+mmcblk0      179:0    0 232.2G  0 disk 
+├─mmcblk0p1  179:1    0 230.7G  0 part /
+├─mmcblk0p2  179:2    0   128M  0 part 
+├─mmcblk0p3  179:3    0   768K  0 part 
+├─mmcblk0p4  179:4    0  31.6M  0 part 
+├─mmcblk0p5  179:5    0   128M  0 part 
+├─mmcblk0p6  179:6    0   768K  0 part 
+├─mmcblk0p7  179:7    0  31.6M  0 part 
+├─mmcblk0p8  179:8    0    80M  0 part 
+├─mmcblk0p9  179:9    0   512K  0 part 
+├─mmcblk0p10 179:10   0    64M  0 part 
+├─mmcblk0p11 179:11   0    80M  0 part 
+├─mmcblk0p12 179:12   0   512K  0 part 
+├─mmcblk0p13 179:13   0    64M  0 part 
+├─mmcblk0p14 179:14   0   400M  0 part 
+└─mmcblk0p15 179:15   0 479.5M  0 part 
+zram0        252:0    0 632.4M  0 disk [SWAP]
+zram1        252:1    0 632.4M  0 disk [SWAP]
+zram2        252:2    0 632.4M  0 disk [SWAP]
+zram3        252:3    0 632.4M  0 disk [SWAP]
+zram4        252:4    0 632.4M  0 disk [SWAP]
+zram5        252:5    0 632.4M  0 disk [SWAP]
+nvme0n1      259:0    0 931.5G  0 disk 
+├─nvme0n1p1  259:1    0 930.1G  0 part 
+├─nvme0n1p2  259:2    0   128M  0 part 
+├─nvme0n1p3  259:3    0   768K  0 part 
+├─nvme0n1p4  259:4    0  31.6M  0 part 
+├─nvme0n1p5  259:5    0   128M  0 part 
+├─nvme0n1p6  259:6    0   768K  0 part 
+├─nvme0n1p7  259:7    0  31.6M  0 part 
+├─nvme0n1p8  259:8    0    80M  0 part 
+├─nvme0n1p9  259:9    0   512K  0 part 
+├─nvme0n1p10 259:10   0    64M  0 part 
+├─nvme0n1p11 259:11   0    80M  0 part 
+├─nvme0n1p12 259:12   0   512K  0 part 
+├─nvme0n1p13 259:13   0    64M  0 part 
+├─nvme0n1p14 259:14   0   400M  0 part 
+└─nvme0n1p15 259:15   0 479.5M  0 part 
+
+=== BIOS/Firmware Information ===
+
+=== Docker Information ===
+Docker Version:
+Client:
+ Version:           26.1.3
+ API version:       1.45
+ Go version:        go1.22.2
+ Git commit:        26.1.3-0ubuntu1~22.04.1
+ Built:             Mon Oct 14 21:24:40 2024
+ OS/Arch:           linux/arm64
+ Context:           default
+
+Server:
+ Engine:
+  Version:          26.1.3
+  API version:      1.45 (minimum version 1.24)
+  Go version:       go1.22.2
+  Git commit:       26.1.3-0ubuntu1~22.04.1
+  Built:            Mon Oct 14 21:24:40 2024
+  OS/Arch:          linux/arm64
+  Experimental:     false
+ containerd:
+  Version:          1.7.24
+  GitCommit:        
+ nvidia:
+  Version:          1.1.12-0ubuntu2~22.04.1
+  GitCommit:        807c87e057e13fbd559369b8fd722cc7a6f4e5bb
+ docker-init:
+  Version:          0.19.0
+  GitCommit:        
+
+Docker Info:
+Client:
+ Version:    26.1.3
+ Context:    default
+ Debug Mode: false
+ Plugins:
+  buildx: Docker Buildx (Docker Inc.)
+    Version:  v0.21.1
+    Path:     /usr/libexec/docker/cli-plugins/docker-buildx
+  compose: Docker Compose (Docker Inc.)
+    Version:  v2.33.1
+    Path:     /usr/libexec/docker/cli-plugins/docker-compose
+
+Server:
+ Containers: 12
+  Running: 1
+  Paused: 0
+  Stopped: 11
+ Images: 9
+ Server Version: 26.1.3
+ Storage Driver: overlay2
+  Backing Filesystem: extfs
+  Supports d_type: true
+  Using metacopy: false
+  Native Overlay Diff: true
+  userxattr: false
+ Logging Driver: json-file
+ Cgroup Driver: systemd
+ Cgroup Version: 2
+ Plugins:
+  Volume: local
+  Network: bridge host ipvlan macvlan null overlay
+  Log: awslogs fluentd gcplogs gelf journald json-file local splunk syslog
+ Swarm: inactive
+ Runtimes: io.containerd.runc.v2 nvidia runc
+ Default Runtime: nvidia
+ Init Binary: docker-init
+ containerd version: 
+ runc version: 807c87e057e13fbd559369b8fd722cc7a6f4e5bb
+ init version: 
+ Security Options:
+  seccomp
+   Profile: builtin
+  cgroupns
+ Kernel Version: 5.15.136-tegra
+ Operating System: Ubuntu 22.04.5 LTS
+ OSType: linux
+ Architecture: aarch64
+ CPUs: 6
+ Total Memory: 7.41GiB
+ Name: elroy
+ ID: a3365eb4-e252-4094-86b5-ea40bf5fbba3
+ Docker Root Dir: /var/lib/docker
+ Debug Mode: false
+ Experimental: false
+ Insecure Registries:
+  127.0.0.0/8
+ Live Restore Enabled: false
+
+
+Docker Compose Version:
+
+=== Network Interfaces ===
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: can0: <NOARP,ECHO> mtu 16 qdisc noop state DOWN group default qlen 10
+    link/can 
+3: wlP1p1s0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc mq state DOWN group default qlen 1000
+    link/ether 28:d0:43:1c:f4:b1 brd ff:ff:ff:ff:ff:ff
+4: enP8p1s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether 48:b0:2d:f7:74:8e brd ff:ff:ff:ff:ff:ff
+    inet 10.0.0.215/24 brd 10.0.0.255 scope global dynamic noprefixroute enP8p1s0
+       valid_lft 91772sec preferred_lft 91772sec
+    inet6 2601:1c2:1401:5fe0::630c/128 scope global dynamic noprefixroute 
+       valid_lft 264576sec preferred_lft 264576sec
+    inet6 2601:1c2:1401:5fe0:7dae:72d4:c0c6:4365/64 scope global temporary dynamic 
+       valid_lft 299sec preferred_lft 299sec
+    inet6 2601:1c2:1401:5fe0:6064:fbb8:eb91:f148/64 scope global dynamic mngtmpaddr noprefixroute 
+       valid_lft 299sec preferred_lft 299sec
+    inet6 fe80::8206:4677:8a77:63a5/64 scope link noprefixroute 
+       valid_lft forever preferred_lft forever
+5: l4tbr0: <BROADCAST,MULTICAST> mtu 1500 qdisc noop state DOWN group default qlen 1000
+    link/ether 3e:c7:e7:79:f3:87 brd ff:ff:ff:ff:ff:ff
+6: usb0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc pfifo_fast master l4tbr0 state DOWN group default qlen 1000
+    link/ether 12:c6:71:f4:8f:a1 brd ff:ff:ff:ff:ff:ff
+7: usb1: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc pfifo_fast master l4tbr0 state DOWN group default qlen 1000
+    link/ether 12:c6:71:f4:8f:a3 brd ff:ff:ff:ff:ff:ff
+8: docker0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default 
+    link/ether 02:42:95:be:5b:e4 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.1.1/24 brd 192.168.1.255 scope global docker0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::42:95ff:febe:5be4/64 scope link 
+       valid_lft forever preferred_lft forever
+14: veth54f0308@if13: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master docker0 state UP group default 
+    link/ether 2a:3f:7c:8f:be:b0 brd ff:ff:ff:ff:ff:ff link-netnsid 0
+    inet6 fe80::283f:7cff:fe8f:beb0/64 scope link 
+       valid_lft forever preferred_lft forever
+
+=== Recent System Logs (Last 50 lines) ===
+

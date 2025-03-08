@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  web:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    networks:
+      - webnet
+
+  app:
+    image: hello-world
+    depends_on:
+      - web
+    networks:
+      - webnet
+
+networks:
+  webnet:
+    driver: bridge

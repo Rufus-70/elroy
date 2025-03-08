@@ -1,0 +1,394 @@
+Scripts File Information:
+Directory: /home/richard/projects/elroy/scripts
+----------------------------------------
+
+File: all_export.txt
+  File: all_export.txt
+  Size: 74465     	Blocks: 152        IO Block: 4096   regular file
+Device: b301h/45825d	Inode: 2649528     Links: 1
+Access: (0664/-rw-rw-r--)  Uid: ( 1000/ richard)   Gid: ( 1000/ richard)
+Access: 2025-03-07 19:37:45.045191127 -0800
+Modify: 2025-03-03 20:18:31.167576863 -0800
+Change: 2025-03-03 20:18:31.167576863 -0800
+ Birth: 2025-03-03 20:18:31.115575307 -0800
+----------------------
+File: all_scripts_combined.txt
+  File: all_scripts_combined.txt
+  Size: 63400     	Blocks: 128        IO Block: 4096   regular file
+Device: b301h/45825d	Inode: 2651707     Links: 1
+Access: (0664/-rw-rw-r--)  Uid: ( 1000/ richard)   Gid: ( 1000/ richard)
+Access: 2025-03-08 08:24:40.064792121 -0800
+Modify: 2025-03-08 08:24:40.156794997 -0800
+Change: 2025-03-08 08:24:40.156794997 -0800
+ Birth: 2025-03-08 08:24:40.064792121 -0800
+----------------------
+File: all_texts_combined.txt
+  File: all_texts_combined.txt
+  Size: 3331665   	Blocks: 6512       IO Block: 4096   regular file
+Device: b301h/45825d	Inode: 2651705     Links: 1
+Access: (0664/-rw-rw-r--)  Uid: ( 1000/ richard)   Gid: ( 1000/ richard)
+Access: 2025-03-08 08:23:44.715058352 -0800
+Modify: 2025-03-08 08:23:44.947065635 -0800
+Change: 2025-03-08 08:23:44.947065635 -0800
+ Birth: 2025-03-08 08:23:44.715058352 -0800
+----------------------
+File: elroy_audit.txt
+  File: elroy_audit.txt
+  Size: 20925     	Blocks: 48         IO Block: 4096   regular file
+Device: b301h/45825d	Inode: 2651668     Links: 1
+Access: (0664/-rw-rw-r--)  Uid: ( 1000/ richard)   Gid: ( 1000/ richard)
+Access: 2025-03-07 18:31:10.320490105 -0800
+Modify: 2025-03-07 18:30:51.899952383 -0800
+Change: 2025-03-07 18:30:51.899952383 -0800
+ Birth: 2025-03-07 18:17:45.513016208 -0800
+----------------------
+File: environment_setup.txt
+  File: environment_setup.txt
+  Size: 9793      	Blocks: 24         IO Block: 4096   regular file
+Device: b301h/45825d	Inode: 2615546     Links: 1
+Access: (0664/-rw-rw-r--)  Uid: ( 1000/ richard)   Gid: ( 1000/ richard)
+Access: 2025-03-07 16:36:28.162723948 -0800
+Modify: 2025-03-07 16:35:39.013287067 -0800
+Change: 2025-03-07 16:35:39.013287067 -0800
+ Birth: 2025-03-07 16:35:29.072996252 -0800
+----------------------
+File: models_file_structure_summary.txt
+  File: models_file_structure_summary.txt
+  Size: 266       	Blocks: 8          IO Block: 4096   regular file
+Device: b301h/45825d	Inode: 2615551     Links: 1
+Access: (0664/-rw-rw-r--)  Uid: ( 1000/ richard)   Gid: ( 1000/ richard)
+Access: 2025-03-07 16:59:56.667631842 -0800
+Modify: 2025-03-07 16:59:39.371130473 -0800
+Change: 2025-03-07 16:59:39.371130473 -0800
+ Birth: 2025-03-07 16:59:39.347129777 -0800
+----------------------
+File: models_file_structure.txt
+  File: models_file_structure.txt
+  Size: 77        	Blocks: 8          IO Block: 4096   regular file
+Device: b301h/45825d	Inode: 2615550     Links: 1
+Access: (0664/-rw-rw-r--)  Uid: ( 1000/ richard)   Gid: ( 1000/ richard)
+Access: 2025-03-07 19:37:45.065191730 -0800
+Modify: 2025-03-07 17:07:55.993513506 -0800
+Change: 2025-03-07 17:07:55.993513506 -0800
+ Birth: 2025-03-07 16:55:01.583071315 -0800
+----------------------
+File: project_file_structure_summary.txt
+  File: project_file_structure_summary.txt
+  Size: 137531    	Blocks: 272        IO Block: 4096   regular file
+Device: b301h/45825d	Inode: 2615554     Links: 1
+Access: (0664/-rw-rw-r--)  Uid: ( 1000/ richard)   Gid: ( 1000/ richard)
+Access: 2025-03-07 17:25:38.684452814 -0800
+Modify: 2025-03-07 17:25:27.348088753 -0800
+Change: 2025-03-07 17:25:27.348088753 -0800
+ Birth: 2025-03-07 17:25:20.543869897 -0800
+----------------------
+File: project_file_structure.txt
+  File: project_file_structure.txt
+  Size: 1544018   	Blocks: 3016       IO Block: 4096   regular file
+Device: b301h/45825d	Inode: 2615548     Links: 1
+Access: (0664/-rw-rw-r--)  Uid: ( 1000/ richard)   Gid: ( 1000/ richard)
+Access: 2025-03-07 19:37:45.069191850 -0800
+Modify: 2025-03-07 16:57:15.498958287 -0800
+Change: 2025-03-07 16:57:15.498958287 -0800
+ Birth: 2025-03-07 16:54:20.857888424 -0800
+----------------------
+File: project_full_file_structure.txt
+  File: project_full_file_structure.txt
+  Size: 1544243   	Blocks: 3024       IO Block: 4096   regular file
+Device: b301h/45825d	Inode: 2615552     Links: 1
+Access: (0664/-rw-rw-r--)  Uid: ( 1000/ richard)   Gid: ( 1000/ richard)
+Access: 2025-03-07 17:09:10.823679147 -0800
+Modify: 2025-03-07 17:07:55.989513391 -0800
+Change: 2025-03-07 17:07:55.989513391 -0800
+ Birth: 2025-03-07 17:03:57.802617826 -0800
+----------------------
+File: scripts_info.txt
+  File: scripts_info.txt
+  Size: 4679      	Blocks: 16         IO Block: 4096   regular file
+Device: b301h/45825d	Inode: 2651709     Links: 1
+Access: (0664/-rw-rw-r--)  Uid: ( 1000/ richard)   Gid: ( 1000/ richard)
+Access: 2025-03-08 08:25:41.678714097 -0800
+Modify: 2025-03-08 08:25:41.718715343 -0800
+Change: 2025-03-08 08:25:41.718715343 -0800
+ Birth: 2025-03-08 08:25:41.678714097 -0800
+----------------------
+File: csv_load3.py
+  File: csv_load3.py
+  Size: 781       	Blocks: 8          IO Block: 4096   regular file
+Device: b301h/45825d	Inode: 1436467     Links: 1
+Access: (0664/-rw-rw-r--)  Uid: ( 1000/ richard)   Gid: ( 1000/ richard)
+Access: 2025-03-07 19:37:45.053191368 -0800
+Modify: 2025-03-03 17:37:18.529371565 -0800
+Change: 2025-03-03 17:37:18.529371565 -0800
+ Birth: 2025-03-03 16:25:37.366613992 -0800
+----------------------
+File: data_importer.py
+  File: data_importer.py
+  Size: 6327      	Blocks: 16         IO Block: 4096   regular file
+Device: b301h/45825d	Inode: 2649504     Links: 1
+Access: (0775/-rwxrwxr-x)  Uid: ( 1000/ richard)   Gid: ( 1000/ richard)
+Access: 2025-03-07 19:37:45.057191488 -0800
+Modify: 2025-03-03 19:53:31.210914565 -0800
+Change: 2025-03-03 19:53:44.087312774 -0800
+ Birth: 2025-03-03 19:49:08.530781711 -0800
+----------------------
+File: db_schema_report.py
+  File: db_schema_report.py
+  Size: 2178      	Blocks: 8          IO Block: 4096   regular file
+Device: b301h/45825d	Inode: 1436470     Links: 1
+Access: (0664/-rw-rw-r--)  Uid: ( 1000/ richard)   Gid: ( 1000/ richard)
+Access: 2025-03-07 19:37:45.057191488 -0800
+Modify: 2025-03-03 18:38:04.349050606 -0800
+Change: 2025-03-03 18:39:53.484396517 -0800
+ Birth: 2025-03-03 18:38:04.349050606 -0800
+----------------------
+File: interactive.py
+  File: interactive.py
+  Size: 4804      	Blocks: 16         IO Block: 4096   regular file
+Device: b301h/45825d	Inode: 2650203     Links: 1
+Access: (0664/-rw-rw-r--)  Uid: ( 1000/ richard)   Gid: ( 1000/ richard)
+Access: 2025-03-08 08:24:40.080792621 -0800
+Modify: 2025-02-28 19:27:10.074519496 -0800
+Change: 2025-02-28 19:27:10.074519496 -0800
+ Birth: 2025-02-28 19:27:10.074519496 -0800
+----------------------
+File: quick_test.py
+  File: quick_test.py
+  Size: 5993      	Blocks: 16         IO Block: 4096   regular file
+Device: b301h/45825d	Inode: 2649503     Links: 1
+Access: (0775/-rwxrwxr-x)  Uid: ( 1000/ richard)   Gid: ( 1000/ richard)
+Access: 2025-03-07 19:37:45.333199810 -0800
+Modify: 2025-03-03 19:36:56.099908149 -0800
+Change: 2025-03-03 19:36:56.099908149 -0800
+ Birth: 2025-03-03 19:35:04.236363600 -0800
+----------------------
+File: test_deepseek_memory.py
+  File: test_deepseek_memory.py
+  Size: 2254      	Blocks: 8          IO Block: 4096   regular file
+Device: b301h/45825d	Inode: 2650569     Links: 1
+Access: (0664/-rw-rw-r--)  Uid: ( 1000/ richard)   Gid: ( 1000/ richard)
+Access: 2025-03-08 08:24:40.096793122 -0800
+Modify: 2025-03-02 15:48:01.407081180 -0800
+Change: 2025-03-02 15:48:01.407081180 -0800
+ Birth: 2025-03-02 13:55:20.326089692 -0800
+----------------------
+File: test_deepseek.py
+  File: test_deepseek.py
+  Size: 982       	Blocks: 8          IO Block: 4096   regular file
+Device: b301h/45825d	Inode: 2650611     Links: 1
+Access: (0664/-rw-rw-r--)  Uid: ( 1000/ richard)   Gid: ( 1000/ richard)
+Access: 2025-03-08 08:24:40.096793122 -0800
+Modify: 2025-03-02 07:49:55.131202896 -0800
+Change: 2025-03-02 07:49:55.131202896 -0800
+ Birth: 2025-03-02 07:35:49.874591403 -0800
+----------------------
+File: validate_queries.py
+  File: validate_queries.py
+  Size: 2898      	Blocks: 8          IO Block: 4096   regular file
+Device: b301h/45825d	Inode: 2649501     Links: 1
+Access: (0664/-rw-rw-r--)  Uid: ( 1000/ richard)   Gid: ( 1000/ richard)
+Access: 2025-03-07 19:37:45.337199931 -0800
+Modify: 2025-03-03 19:10:39.554658210 -0800
+Change: 2025-03-03 19:10:39.554658210 -0800
+ Birth: 2025-03-03 18:54:51.471567487 -0800
+----------------------
+File: verify_gpu.py
+  File: verify_gpu.py
+  Size: 3599      	Blocks: 8          IO Block: 4096   regular file
+Device: b301h/45825d	Inode: 2650202     Links: 1
+Access: (0775/-rwxrwxr-x)  Uid: ( 1000/ richard)   Gid: ( 1000/ richard)
+Access: 2025-03-08 08:24:40.104793372 -0800
+Modify: 2025-02-28 19:39:30.348392698 -0800
+Change: 2025-02-28 19:40:37.658388679 -0800
+ Birth: 2025-02-28 19:26:33.205436567 -0800
+----------------------
+File: your_ui_script.py
+  File: your_ui_script.py
+  Size: 315       	Blocks: 8          IO Block: 4096   regular file
+Device: b301h/45825d	Inode: 2651658     Links: 1
+Access: (0664/-rw-rw-r--)  Uid: ( 1000/ richard)   Gid: (  137/  docker)
+Access: 2025-03-07 19:37:45.337199931 -0800
+Modify: 2025-03-06 18:35:22.838464873 -0800
+Change: 2025-03-06 18:35:22.838464873 -0800
+ Birth: 2025-03-06 17:25:11.090416807 -0800
+----------------------
+File: audit_environment.sh
+  File: audit_environment.sh
+  Size: 1899      	Blocks: 8          IO Block: 4096   regular file
+Device: b301h/45825d	Inode: 2615547     Links: 1
+Access: (0775/-rwxrwxr-x)  Uid: ( 1000/ richard)   Gid: ( 1000/ richard)
+Access: 2025-03-07 16:35:29.056995783 -0800
+Modify: 2025-03-07 16:35:09.088411352 -0800
+Change: 2025-03-07 16:35:21.228766707 -0800
+ Birth: 2025-03-07 16:35:09.088411352 -0800
+----------------------
+File: audit_file_structure.sh
+  File: audit_file_structure.sh
+  Size: 970       	Blocks: 8          IO Block: 4096   regular file
+Device: b301h/45825d	Inode: 2615549     Links: 1
+Access: (0775/-rwxrwxr-x)  Uid: ( 1000/ richard)   Gid: ( 1000/ richard)
+Access: 2025-03-07 17:25:20.539869768 -0800
+Modify: 2025-03-07 17:25:11.283571623 -0800
+Change: 2025-03-07 17:25:17.383768165 -0800
+ Birth: 2025-03-07 16:54:09.337553729 -0800
+----------------------
+File: combine_all.sh
+  File: combine_all.sh
+  Size: 571       	Blocks: 8          IO Block: 4096   regular file
+Device: b301h/45825d	Inode: 2651706     Links: 1
+Access: (0775/-rwxrwxr-x)  Uid: ( 1000/ richard)   Gid: ( 1000/ richard)
+Access: 2025-03-08 08:23:44.655056468 -0800
+Modify: 2025-03-08 08:22:32.720791681 -0800
+Change: 2025-03-08 08:23:37.718838678 -0800
+ Birth: 2025-03-08 08:22:32.720791681 -0800
+----------------------
+File: combine_sh_py.sh
+  File: combine_sh_py.sh
+  Size: 576       	Blocks: 8          IO Block: 4096   regular file
+Device: b301h/45825d	Inode: 2651708     Links: 1
+Access: (0775/-rwxrwxr-x)  Uid: ( 1000/ richard)   Gid: ( 1000/ richard)
+Access: 2025-03-08 08:24:40.060791996 -0800
+Modify: 2025-03-08 08:24:21.180201388 -0800
+Change: 2025-03-08 08:24:34.248610270 -0800
+ Birth: 2025-03-08 08:24:21.180201388 -0800
+----------------------
+File: db_export.sh
+  File: db_export.sh
+  Size: 1052      	Blocks: 8          IO Block: 4096   regular file
+Device: b301h/45825d	Inode: 2652208     Links: 1
+Access: (0775/-rwxrwxr-x)  Uid: ( 1000/ richard)   Gid: ( 1000/ richard)
+Access: 2025-03-08 08:24:40.120793872 -0800
+Modify: 2025-03-01 15:05:39.784795647 -0800
+Change: 2025-03-01 15:06:12.385745369 -0800
+ Birth: 2025-03-01 14:51:27.035362804 -0800
+----------------------
+File: elroy_audit.sh
+  File: elroy_audit.sh
+  Size: 3484      	Blocks: 8          IO Block: 4096   regular file
+Device: b301h/45825d	Inode: 2651671     Links: 1
+Access: (0775/-rwxrwxr-x)  Uid: ( 1000/ richard)   Gid: ( 1000/ richard)
+Access: 2025-03-07 18:30:09.226706738 -0800
+Modify: 2025-03-07 18:30:00.598454885 -0800
+Change: 2025-03-07 18:30:06.234619400 -0800
+ Birth: 2025-03-07 18:17:13.036070375 -0800
+----------------------
+File: export_all.sh
+  File: export_all.sh
+  Size: 1700      	Blocks: 8          IO Block: 4096   regular file
+Device: b301h/45825d	Inode: 2649517     Links: 1
+Access: (0775/-rwxrwxr-x)  Uid: ( 1000/ richard)   Gid: ( 1000/ richard)
+Access: 2025-03-07 19:37:45.065191730 -0800
+Modify: 2025-03-03 20:18:18.495197763 -0800
+Change: 2025-03-03 20:18:27.507467352 -0800
+ Birth: 2025-03-03 20:15:49.282747803 -0800
+----------------------
+File: full_database_export.sh
+  File: full_database_export.sh
+  Size: 545       	Blocks: 8          IO Block: 4096   regular file
+Device: b301h/45825d	Inode: 2652210     Links: 1
+Access: (0775/-rwxrwxr-x)  Uid: ( 1000/ richard)   Gid: ( 1000/ richard)
+Access: 2025-03-08 08:24:40.132794247 -0800
+Modify: 2025-03-01 15:56:50.315111218 -0800
+Change: 2025-03-01 15:57:09.631689934 -0800
+ Birth: 2025-03-01 15:56:50.315111218 -0800
+----------------------
+File: full_system_info.sh
+  File: full_system_info.sh
+  Size: 2931      	Blocks: 8          IO Block: 4096   regular file
+Device: b301h/45825d	Inode: 2650220     Links: 1
+Access: (0775/-rwxrwxr-x)  Uid: ( 1000/ richard)   Gid: ( 1000/ richard)
+Access: 2025-03-07 19:37:45.065191730 -0800
+Modify: 2025-03-02 19:07:58.432480289 -0800
+Change: 2025-03-02 19:10:24.181586607 -0800
+ Birth: 2025-03-02 19:07:58.432480289 -0800
+----------------------
+File: gpt_start.sh
+  File: gpt_start.sh
+  Size: 2772      	Blocks: 8          IO Block: 4096   regular file
+Device: b301h/45825d	Inode: 2649539     Links: 1
+Access: (0775/-rwxrwxr-x)  Uid: ( 1000/ richard)   Gid: ( 1000/ richard)
+Access: 2025-03-08 08:24:40.136794372 -0800
+Modify: 2025-03-01 14:44:33.578890454 -0800
+Change: 2025-03-01 14:45:42.388835258 -0800
+ Birth: 2025-02-28 16:50:48.222632026 -0800
+----------------------
+File: list_scripts_info.sh
+  File: list_scripts_info.sh
+  Size: 764       	Blocks: 8          IO Block: 4096   regular file
+Device: b301h/45825d	Inode: 2651710     Links: 1
+Access: (0775/-rwxrwxr-x)  Uid: ( 1000/ richard)   Gid: ( 1000/ richard)
+Access: 2025-03-08 08:25:41.674713973 -0800
+Modify: 2025-03-08 08:25:24.518179588 -0800
+Change: 2025-03-08 08:25:35.658526650 -0800
+ Birth: 2025-03-08 08:25:24.518179588 -0800
+----------------------
+File: llm_update_handler.sh
+  File: llm_update_handler.sh
+  Size: 1034      	Blocks: 8          IO Block: 4096   regular file
+Device: b301h/45825d	Inode: 2649545     Links: 1
+Access: (0775/-rwxrwxr-x)  Uid: ( 1000/ richard)   Gid: ( 1000/ richard)
+Access: 2025-03-08 08:24:40.140794497 -0800
+Modify: 2025-03-01 09:38:32.861372590 -0800
+Change: 2025-03-01 09:38:32.861372590 -0800
+ Birth: 2025-02-28 17:10:07.984065601 -0800
+----------------------
+File: reorganize_elroy.sh
+  File: reorganize_elroy.sh
+  Size: 1865      	Blocks: 8          IO Block: 4096   regular file
+Device: b301h/45825d	Inode: 2650219     Links: 1
+Access: (0775/-rwxrwxr-x)  Uid: ( 1000/ richard)   Gid: ( 1000/ richard)
+Access: 2025-03-07 19:37:45.333199810 -0800
+Modify: 2025-03-02 18:56:51.796746854 -0800
+Change: 2025-03-02 18:57:01.777249746 -0800
+ Birth: 2025-03-02 18:56:51.796746854 -0800
+----------------------
+File: run.sh
+  File: run.sh
+  Size: 2301      	Blocks: 8          IO Block: 4096   regular file
+Device: b301h/45825d	Inode: 2650208     Links: 1
+Access: (0775/-rwxrwxr-x)  Uid: ( 1000/ richard)   Gid: ( 1000/ richard)
+Access: 2025-03-08 08:24:40.144794622 -0800
+Modify: 2025-02-28 19:38:58.415446017 -0800
+Change: 2025-02-28 19:40:37.658388679 -0800
+ Birth: 2025-02-28 19:27:35.987281164 -0800
+----------------------
+File: setup_deepseek_container.sh
+  File: setup_deepseek_container.sh
+  Size: 882       	Blocks: 8          IO Block: 4096   regular file
+Device: b301h/45825d	Inode: 2650570     Links: 1
+Access: (0775/-rwxrwxr-x)  Uid: ( 1000/ richard)   Gid: ( 1000/ richard)
+Access: 2025-03-08 08:24:40.148794747 -0800
+Modify: 2025-03-02 16:01:12.019761275 -0800
+Change: 2025-03-02 16:01:17.323924385 -0800
+ Birth: 2025-03-02 13:57:24.625018008 -0800
+----------------------
+File: setup.sh
+  File: setup.sh
+  Size: 2894      	Blocks: 8          IO Block: 4096   regular file
+Device: b301h/45825d	Inode: 2649454     Links: 1
+Access: (0775/-rwxrwxr-x)  Uid: ( 1000/ richard)   Gid: ( 1000/ richard)
+Access: 2025-03-08 08:24:40.148794747 -0800
+Modify: 2025-02-28 15:57:46.918130231 -0800
+Change: 2025-02-28 15:57:57.690436473 -0800
+ Birth: 2025-02-28 15:53:09.954306717 -0800
+----------------------
+File: sys_info.sh
+  File: sys_info.sh
+  Size: 3323      	Blocks: 8          IO Block: 4096   regular file
+Device: b301h/45825d	Inode: 2652209     Links: 1
+Access: (0775/-rwxrwxr-x)  Uid: ( 1000/ richard)   Gid: ( 1000/ richard)
+Access: 2025-03-08 08:24:40.152794872 -0800
+Modify: 2025-03-01 14:17:20.280728740 -0800
+Change: 2025-03-01 14:17:25.024862816 -0800
+ Birth: 2025-03-01 14:00:22.732203943 -0800
+----------------------
+File: system_test.sh
+  File: system_test.sh
+  Size: 3658      	Blocks: 8          IO Block: 4096   regular file
+Device: b301h/45825d	Inode: 2650199     Links: 1
+Access: (0775/-rwxrwxr-x)  Uid: ( 1000/ richard)   Gid: ( 1000/ richard)
+Access: 2025-03-07 19:37:45.333199810 -0800
+Modify: 2025-03-02 19:03:24.562199782 -0800
+Change: 2025-03-02 19:03:36.026653378 -0800
+ Birth: 2025-03-02 19:03:24.562199782 -0800
+----------------------

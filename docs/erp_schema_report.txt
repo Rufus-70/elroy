@@ -1,0 +1,251 @@
+
+📌 **ERP Database Schema Report**
+==================================================
+🔹 Table: date_table
+----------------------------------------
+Column Name          Type       PK?       
+----------------------------------------
+Date                 TEXT       No        
+Year                 INTEGER    No        
+Mth                  TEXT       No        
+Wk#                  INTEGER    No        
+YrWk                 INTEGER    No        
+SrtWeek              TEXT       No        
+
+🔸 date_table: No foreign keys.
+
+
+🔹 Table: employees
+----------------------------------------
+Column Name          Type       PK?       
+----------------------------------------
+EmpID                TEXT       No        
+Name                 TEXT       No        
+EmpStatus            TEXT       No        
+JCDept               REAL       No        
+Company              TEXT       No        
+Shift                INTEGER    No        
+ResourceGrpID        REAL       No        
+ResourceID           REAL       No        
+Department           REAL       No        
+
+🔸 employees: No foreign keys.
+
+
+🔹 Table: db19_old
+----------------------------------------
+Column Name          Type       PK?       
+----------------------------------------
+JobAsmbl_Company     TEXT       No        
+Customer_Name        TEXT       No        
+JobHead_ProdQty      REAL       No        
+JobHead_QtyCompleted INTEGER    No        
+JobOper_OprSeq       REAL       No        
+JobOper_OpDesc       TEXT       No        
+ResourceTimeUsed_ResourceGrpID TEXT       No        
+JCDept_JCDept        REAL       No        
+JCDept_Description   TEXT       No        
+JobOper_LastLaborDate TEXT       No        
+Calculated_RemProdHrs REAL       No        
+Calculated_OpCount   REAL       No        
+JobHead_PartNum      TEXT       No        
+JobHead_PartDescription TEXT       No        
+OrderDtl_OrderQty    REAL       No        
+JobHead_SchedCode    TEXT       No        
+JobHead_ProdCode     REAL       No        
+JobHead_JobHold_c    INTEGER    No        
+JobHead_CommentText  TEXT       No        
+JobHead_JobNotes_c   REAL       No        
+JobHead_Company      TEXT       No        
+JobHead_JobNum       TEXT       No        
+JobHead_LotNum_c     TEXT       No        
+JobHead_Remake_c     INTEGER    No        
+JobHead_Rework_c     INTEGER    No        
+JobHead_Rush_c       INTEGER    No        
+JobHead_Split_c      INTEGER    No        
+JobHead_TestCoupons_c INTEGER    No        
+JobHead_Reference_c  REAL       No        
+Calculated_WIP       INTEGER    No        
+Calculated_RemainingOps REAL       No        
+JobOper_CommentText  TEXT       No        
+JobAsmbl_CommentText REAL       No        
+JobAsmbl_TravelerLastPrint_c REAL       No        
+JobAsmbl_TravPrintedBy_c REAL       No        
+OrderRel_OrAckDate_c TEXT       No        
+Part_RefCategory     TEXT       No        
+
+🔸 db19_old: No foreign keys.
+
+
+🔹 Table: ref_cat
+----------------------------------------
+Column Name          Type       PK?       
+----------------------------------------
+PartNum              TEXT       No        
+RefCat               TEXT       No        
+
+🔸 ref_cat: No foreign keys.
+
+
+🔹 Table: job_header
+----------------------------------------
+Column Name          Type       PK?       
+----------------------------------------
+JobClosed            INTEGER    No        
+ClosedDate           TEXT       No        
+JobComplete          INTEGER    No        
+JobCompletionDate    TEXT       No        
+JobNum               TEXT       No        
+PartNum              TEXT       No        
+RevisionNum          REAL       No        
+DrawNum              TEXT       No        
+PartDescription      TEXT       No        
+ProdQty              REAL       No        
+CommentText          TEXT       No        
+OrigProdQty          REAL       No        
+SplitJob             INTEGER    No        
+LotNum_c             TEXT       No        
+JobHold_c            INTEGER    No        
+JobHoldDesc_c        TEXT       No        
+JobNotes_c           REAL       No        
+DrawRev_c            TEXT       No        
+Company              TEXT       No        
+JobReleased          INTEGER    No        
+QtyCompleted         INTEGER    No        
+EquipID              REAL       No        
+CustName             TEXT       No        
+JobReleasedBy_c      TEXT       No        
+JobReleasedDate_c    TEXT       No        
+JobHoldInput_c       REAL       No        
+NewMfgPart_c         INTEGER    No        
+DropShip_c           INTEGER    No        
+ECN_c                INTEGER    No        
+NewPart_c            INTEGER    No        
+Prototype_c          INTEGER    No        
+Remake_c             INTEGER    No        
+Rework_c             INTEGER    No        
+Rush_c               INTEGER    No        
+Split_c              INTEGER    No        
+TestCoupons_c        INTEGER    No        
+
+🔸 job_header: No foreign keys.
+
+
+🔹 Table: search_input
+----------------------------------------
+Column Name          Type       PK?       
+----------------------------------------
+SearchText           TEXT       No        
+
+🔸 search_input: No foreign keys.
+
+
+🔹 Table: job_operations
+----------------------------------------
+Column Name          Type       PK?       
+----------------------------------------
+JobNum               TEXT       No        
+OprSeq               INTEGER    Yes       
+Description          TEXT       No        
+
+🔸 Foreign Keys in job_operations
+----------------------------------------
+Column          → References Table (References Column)
+----------------------------------------
+JobNum          → job_header      (JobNum)
+
+
+🔹 Table: labor_details
+----------------------------------------
+Column Name          Type       PK?       
+----------------------------------------
+EmployeeNum          TEXT       No        
+ClockInDate          TEXT       No        
+JobNum               TEXT       No        
+OprSeq               INTEGER    No        
+
+🔸 Foreign Keys in labor_details
+----------------------------------------
+Column          → References Table (References Column)
+----------------------------------------
+OprSeq          → job_operations  (OprSeq)
+JobNum          → job_header      (JobNum)
+ClockInDate     → date_table      (Date)
+EmployeeNum     → employees       (EmpID)
+
+
+🔹 Table: ncmr
+----------------------------------------
+Column Name          Type       PK?       
+----------------------------------------
+JobNum               TEXT       No        
+CreatedDateNCMR      TEXT       No        
+
+🔸 Foreign Keys in ncmr
+----------------------------------------
+Column          → References Table (References Column)
+----------------------------------------
+CreatedDateNCMR → date_table      (Date)
+JobNum          → job_header      (JobNum)
+
+
+🔹 Table: db19
+----------------------------------------
+Column Name          Type       PK?       
+----------------------------------------
+JobAsmbl_Company     TEXT       No        
+Customer_Name        TEXT       No        
+JobHead_ProdQty      REAL       No        
+JobHead_QtyCompleted INTEGER    No        
+JobOper_OprSeq       REAL       No        
+JobOper_OpDesc       TEXT       No        
+ResourceTimeUsed_ResourceGrpID TEXT       No        
+JCDept_JCDept        REAL       No        
+JCDept_Description   TEXT       No        
+JobOper_LastLaborDate TEXT       No        
+Calculated_RemProdHrs REAL       No        
+Calculated_OpCount   REAL       No        
+JobHead_PartNum      TEXT       No        
+JobHead_PartDescription TEXT       No        
+OrderDtl_OrderQty    REAL       No        
+JobHead_SchedCode    TEXT       No        
+JobHead_ProdCode     REAL       No        
+JobHead_JobHold_c    INTEGER    No        
+JobHead_CommentText  TEXT       No        
+JobHead_JobNotes_c   REAL       No        
+JobHead_Company      TEXT       No        
+JobHead_JobNum       TEXT       No        
+JobHead_LotNum_c     TEXT       No        
+JobHead_Remake_c     INTEGER    No        
+JobHead_Rework_c     INTEGER    No        
+JobHead_Rush_c       INTEGER    No        
+JobHead_Split_c      INTEGER    No        
+JobHead_TestCoupons_c INTEGER    No        
+JobHead_Reference_c  REAL       No        
+Calculated_WIP       INTEGER    No        
+Calculated_RemainingOps REAL       No        
+JobOper_CommentText  TEXT       No        
+JobAsmbl_CommentText REAL       No        
+JobAsmbl_TravelerLastPrint_c REAL       No        
+JobAsmbl_TravPrintedBy_c REAL       No        
+OrderRel_OrAckDate_c TEXT       No        
+Part_RefCategory     TEXT       No        
+
+🔸 db19: No foreign keys.
+
+
+🔹 Table: shipments
+----------------------------------------
+Column Name          Type       PK?       
+----------------------------------------
+PackNum              INTEGER    Yes       
+PartNum              TEXT       No        
+ShipDate             TEXT       No        
+
+🔸 Foreign Keys in shipments
+----------------------------------------
+Column          → References Table (References Column)
+----------------------------------------
+ShipDate        → date_table      (Date)
+PartNum         → ref_cat         (PartNum)
+

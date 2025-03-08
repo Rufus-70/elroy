@@ -1,2 +1,0 @@
-id,timestamp,os_version,jetpack_version,cuda_version,cudnn_version,tensorrt_version,python_version,cpu_info,gpu_info,memory_info,storage_info,docker_containers,pytorch_gpu_test
-1,"2025-03-01 22:59:52",R36.3.0,"JetPack 6.0","CUDA 12.2","cuDNN 8.9.4.25","TensorRT 8.6.2.3","Python 3.10.12",Cortex-A78AE,"GPU Active","7.4GB RAM","/dev/mmcblk0p1 227G","NVIDIA PyTorch Container",True

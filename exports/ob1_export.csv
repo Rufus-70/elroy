@@ -1,8 +1,0 @@
-id,project_id,observation,investigation_status,linked_ka1
-1,Jetson_Orin_Nano,"SD card not detected in lsblk, fdisk -l",Investigating,
-2,Jetson_Orin_Nano,"`dmesg | grep -i mmc` returns no SD/MMC logs",Investigating,
-3,Jetson_Orin_Nano,"SD card not detected in lsblk, fdisk -l",Investigating,
-4,Jetson_Orin_Nano,"`dmesg | grep -i mmc` returns no SD/MMC logs",Investigating,
-5,Jetson_Orin_Nano,"sudo ./flash.sh --no-systemimg jetson-orin-nano-devkit mmcblk0p1 fails",Unreviewed,
-6,Jetson_Orin_Nano,"Bootloader (cboot.bin) missing from extracted JetPack files",Investigating,
-7,Jetson_Orin_Nano,"/dev/sdc detected as 16MB USB File-Stor Gadget",Investigating,
